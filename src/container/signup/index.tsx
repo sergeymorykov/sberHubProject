@@ -1,33 +1,24 @@
 import * as React from 'react';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import CssBaseline from '@mui/material/CssBaseline';
-import TextField from '@mui/material/TextField';
-import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import {Button, Grid2, Box, Container
+} from '@mui/material';
+import Title from './title';
+import Name from './name';
+import About from './about';
+import Photo from './photo';
+import Interests from './interests';
+import RegisterButton from './button';
 import axios from 'axios';
-import student_icon from '../../assets/images/student-icon.png';
+import student_icon from './student-icon.png';
 import "./index.css";
 //import useTelegram from "../hooks/useTelegram";
 import Select from 'react-select';
-import makeAnimated from 'react-select/animated';
 import { useState } from 'react';
-import { useConstant } from '../Constant';
-
-const animatedComponents = makeAnimated();
-const theme = createTheme();
-
+import { useConstant } from '../Constant'; 
+import { GridChildrenStyle } from './index.style';
 
 const SingUpPage = (): React.ReactElement => {
-  const [avatarUrl, setAvatarUrl] = useState<string | null>(null);
-  const [selectedOption, setSelectedOption] = useState<string | null>(null);
-  const handleChange = (selectedOption) => {
-    setSelectedOption(selectedOption);
-  };
   const { interests } = useConstant();
+
   //const { user_id, username, onClose } = useTelegram();
   /*
   const handleSubmit = async (event) => {
@@ -48,123 +39,66 @@ const SingUpPage = (): React.ReactElement => {
     onClose();
   };
   */
-  const handleAvatarClick = () => {
-    const fileInput = document.getElementById('avatar-input') as HTMLInputElement;
-    fileInput.click();
-  };
-
-  const handleAvatarChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files[0];
-    const reader = new FileReader();
-
-    reader.onload = () => {
-      setAvatarUrl(reader.result as string);
-    };
-
-    reader.readAsDataURL(file);
-  };
-
-
 
   return (
-    <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
-        <CssBaseline />
         <Box
           sx={{
-            marginTop: 8,
+            marginTop: 4,
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
           }}
         >
-          <Typography component="h1" variant="h5">
-            Регистрация
-          </Typography>
+          <Title>Регистрация</Title>  
           <Box component="form" noValidate  sx={{ mt: 3 }}>
-            <Grid container spacing={2}>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  required
-                  fullWidth
-                  id="lname"
-                  label="Фамилия"
-                  name="lname"
+            <Grid2 container>
+              <GridChildrenStyle size={6}>
+                <Name 
+                  id="lastname"
+                  label="Фамилия" 
+                  name="lastname" 
                   autoComplete="family-name"
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  autoComplete="given-name"
-                  name="fname"
-                  required
-                  fullWidth
-                  id="fname"
+                />                
+              </GridChildrenStyle>
+              <GridChildrenStyle size={6}>
+                <Name 
+                  id="firstname"
                   label="Имя"
-                  autoFocus
+                  name="firstname" 
+                  autoComplete="given-name"
                 />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  fullWidth
-                  multiline
+              </GridChildrenStyle>
+              <GridChildrenStyle size={12}>
+                <About
                   rows={3}
                   id="about"
                   label="Обо мне"
                   name="about"
-                  variant="outlined"
                   placeholder="Напишите о себе"
                 />
-              </Grid>
-              <Grid
-                container
-                spacing={0}
-                direction="column"
-                alignItems="center"
-                justifyContent="center"
-                sx={{ paddingTop: 7, paddingLeft: 3 }}
-              >
-                <Avatar src={avatarUrl || student_icon} onClick={handleAvatarClick} sx={{ width: 200, height: 200 }}/>
-                <input
-                  type="file"
-                  name="image"
-                  accept="image/*"
-                  onChange={handleAvatarChange}
-                  style={{ display: 'none' }}
-                  id="avatar-input"
+              </GridChildrenStyle>
+              <GridChildrenStyle size={12}>
+                <Photo 
+                  id="photo"
+                  name="photo" 
                 />
-              </Grid>
-              <Grid
-                container
-                spacing={0}
-                direction="column"
-                alignItems="center"
-                justifyContent="center"
-                sx={{ paddingTop: 7, ml: 3 }}
-              >
-                <Select
-                  onChange={handleChange}
-                  closeMenuOnSelect={false}
-                  components={animatedComponents}
-                  isMulti
+              </GridChildrenStyle>
+              <GridChildrenStyle size={12}>
+                <Interests
                   options={interests}
-                  className="basic-multi-select"
-                  classNamePrefix="select"
+                  placeholder='Выберите интересы...'
                 />
-              </Grid>
-              <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                sx={{ mt: 3, mb: 2, ml: 3 }}
-              >
+              </GridChildrenStyle>
+              <GridChildrenStyle size={12}>
+              <RegisterButton>
                 Регистрация
-              </Button>
-            </Grid>
+              </RegisterButton>
+              </GridChildrenStyle>
+            </Grid2>
           </Box>
         </Box>
       </Container>
-    </ThemeProvider>
   );
 };
 
