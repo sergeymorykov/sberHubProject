@@ -16,12 +16,12 @@ export const router = createBrowserRouter([
         element: <SingUpPage />
       },
       {
-        path: getNavigationsValue('sberhubproject.error'),
+        path: '*',
         element: 
           <ErrorPage
-           errorCode={ErrorPageCode.SERVER_ERROR} 
+           errorCode={ErrorPageCode.NOT_FOUND} 
            errorTitle="Undefined app name"
-           errorInfo={null}
+           errorInfo="Вы запросили приложение по адресу undefined"
           />
       }
     ]
