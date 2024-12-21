@@ -11,6 +11,7 @@ module.exports = {
   /* use https://admin.bro-js.ru/ to create config, navigations and features */
   navigations: {
     'sberhubproject.main': '/sberhubproject',
+    'sberhubproject.error': '/sberhubproject/error',
     'sberhubproject.signup': '/sberhubproject/signup',
   },
   features: {

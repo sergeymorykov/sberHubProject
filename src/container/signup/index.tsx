@@ -41,15 +41,7 @@ const SingUpPage = (): React.ReactElement => {
   */
 
   return (
-      <Container component="main" maxWidth="xs">
-        <Box
-          sx={{
-            marginTop: 4,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-          }}
-        >
+      <Container>
           <Title>Регистрация</Title>  
           <Box component="form" noValidate  sx={{ mt: 3 }}>
             <Grid2 container>
@@ -97,7 +89,6 @@ const SingUpPage = (): React.ReactElement => {
               </GridChildrenStyle>
             </Grid2>
           </Box>
-        </Box>
       </Container>
   );
 };
