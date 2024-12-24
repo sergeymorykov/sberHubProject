@@ -12,7 +12,6 @@ const CheckUserId = ({ children }) => {
   useEffect(() => {
     const initTelegram = async () => {
       user_id ? setIsUserValid(true) : setIsUserValid(false);
-      console.log(user_id);
     };
 
     initTelegram();

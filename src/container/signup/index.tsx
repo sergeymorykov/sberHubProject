@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Button, Grid2, Box, Container
+import {Grid2, Box, Container
 } from '@mui/material';
 import Title from './title';
 import Name from './name';
@@ -11,13 +11,10 @@ import axios from 'axios';
 import student_icon from './student-icon.png';
 import "./index.css";
 //import useTelegram from "../hooks/useTelegram";
-import Select from 'react-select';
 import { useState } from 'react';
-import { useConstant } from '../Constant'; 
 import { GridChildrenStyle } from './index.style';
 
 const SingUpPage = (): React.ReactElement => {
-  const { interests } = useConstant();
 
   //const { user_id, username, onClose } = useTelegram();
   /*
@@ -78,7 +75,6 @@ const SingUpPage = (): React.ReactElement => {
               </GridChildrenStyle>
               <GridChildrenStyle size={12}>
                 <Interests
-                  options={interests}
                   placeholder='Выберите интересы...'
                 />
               </GridChildrenStyle>

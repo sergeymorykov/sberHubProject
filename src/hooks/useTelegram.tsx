@@ -1,5 +1,4 @@
-import { useEffect, useState } from 'react';
-import  WebApp from '@twa-dev/sdk';
+import WebApp from '@twa-dev/sdk';
 
 const useTelegram = () => {
   const tg = WebApp;
