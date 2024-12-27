@@ -1,4 +1,5 @@
 // eslint-disable-next-line @typescript-eslint/no-require-imports
+const { use } = require('react');
 const pkg = require('./package');
 
 module.exports = {
@@ -13,6 +14,7 @@ module.exports = {
     'sberhubproject.main': '/sberhubproject',
     'sberhubproject.error': '/sberhubproject/error',
     'sberhubproject.signup': '/sberhubproject/signup',
+    'sberhubproject.editUser': '/sberhubproject/edit-user'
   },
   features: {
     'sberhubproject': {

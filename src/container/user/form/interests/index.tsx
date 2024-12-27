@@ -1,13 +1,13 @@
 import * as React from 'react';
 import { useState } from 'react';
 import { InterestsStyled } from './index.style';
-import { useGetInterestQuery } from '../../../store/api';
+import { useGetInterestsQuery } from '../../../../store/api';
 
-const Interests = ({placeholder = "Выберите..."}): React.ReactElement => {
+const Interests = ({ id, name, defaultValues = null}): React.ReactElement => {
 
-    const {data, isLoading, error} = useGetInterestQuery(undefined);
+    const {data, isLoading, error} = useGetInterestsQuery(undefined);
 
-    const [selectedInterests, setSelectedInterests] = useState<string | null>(null);
+    const [selectedInterests, setSelectedInterests] = useState<string | null>(defaultValues);
 
     const handleChange = (selectedInterests) => {
         setSelectedInterests(selectedInterests);
@@ -18,13 +18,15 @@ const Interests = ({placeholder = "Выберите..."}): React.ReactElement =>
             {isLoading && <div>Loading...</div>}
             {error && <div>Произошла ошибка</div>}
             {data && <InterestsStyled
+                    id={id}
+                    name={name}
                     onChange={handleChange}
                     closeMenuOnSelect={false}
                     isMulti
                     options={data}
                     className="basic-multi-select"
                     classNamePrefix="select"
-                    placeholder={placeholder}
+                    placeholder='Выберите интересы...'
                     value={selectedInterests}
                 />
                 }

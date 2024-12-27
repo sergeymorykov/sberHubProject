@@ -1,6 +1,7 @@
 import React, { useState, useEffect, use } from 'react';
 import { createBrowserRouter } from 'react-router-dom';
-import SingUpPage from '../signup';
+import SingUpPage from '../user/signup';
+import EditUserPage from '../user/edit';
 import ErrorPage from '../error';
 import { ErrorPageCode } from '../error/types';
 import { getNavigationsValue } from '@brojs/cli';
@@ -14,6 +15,10 @@ export const router = createBrowserRouter([
       {
         path: getNavigationsValue('sberhubproject.signup'),
         element: <SingUpPage />
+      },
+      {
+        path: getNavigationsValue('sberhubproject.editUser'),
+        element: <EditUserPage />
       },
       {
         path: '*',

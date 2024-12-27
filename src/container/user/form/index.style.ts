@@ -7,3 +7,8 @@ export const GridChildrenStyle = styled(Grid2)`
     align-items: center;
     justify-content: center;
 `;
+
+
+export const FormStyled = styled.form`
+    margin-top: 24px;
+  `;

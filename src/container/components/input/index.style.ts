@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import TextField from '@mui/material/TextField';
 
-export const TextFieldStyled = styled(TextField)`  
+export const InputStyled = styled(TextField)`  
   & .MuiInputBase-input {
       color: var(--tg-theme-text-color,rgba(0, 0, 0, 0.6));
     }

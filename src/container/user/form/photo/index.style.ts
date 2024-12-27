@@ -8,6 +8,10 @@ export const PhotoStyled = styled.div<{ id: string, name: string, value: string 
 `;
 
 export const AvatarStyled = styled(Avatar)`
+  .MuiAvatar-colorDefault {
+    color: #ffffff;
+  }
+
   width: 200px;
   height: 200px;
 `;

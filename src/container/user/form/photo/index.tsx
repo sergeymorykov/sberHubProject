@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { useState } from 'react';
 import { AvatarStyled, PhotoStyled, InputStyled } from './index.style';
+import { Avatar } from '@mui/material';
 
 const Photo = ({ id, name, defaultPhoto = null}): React.ReactElement => {
   const [photo, setPhoto] = useState(defaultPhoto);

@@ -2,13 +2,15 @@ import styled from '@emotion/styled';
 import Select from 'react-select';
 
 export const InterestsStyled = styled(Select)`
+  width: 100%;
+
   .select__control {
     background-color: var(--tg-theme-bg-color, #ffffff);
     border: 1px solid var(--tg-theme-border-color, #cccccc);
     color: var(--tg-theme-text-color, #000000);
     border-radius: 8px;
     font-size: 14px;
-    box-shadow: none;
+    box-shadow: none;    
 
     &:hover {
       border-color: var(--tg-theme-border-hover, #888888);
