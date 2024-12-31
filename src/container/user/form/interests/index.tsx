@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useState } from 'react';
 import { InterestsStyled } from './index.style';
-import { useGetInterestsQuery } from '../../../../store/api';
+import { useGetInterestsQuery } from '../../../../service/api';
 
 const Interests = ({ id, name, defaultValues = null}): React.ReactElement => {
 

@@ -9,7 +9,7 @@ import Interests from './interests';
 import Button from './button';
 import { FormStyled, GridChildrenStyle } from './index.style';
 import useTelegram  from '../../../hooks/useTelegram';
-import { useUpdateUserMutation, useCreateUserMutation } from '../../../store/api';
+import { useUpdateUserMutation, useCreateUserMutation } from '../../../service/api';
 
 const UserForm = ({user = null}): React.ReactElement => {
 
