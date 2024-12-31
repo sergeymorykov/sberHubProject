@@ -1,7 +1,7 @@
 import React from 'react';
 import UserForm from '../form';
 import useTelegram from '../../../hooks/useTelegram';
-import { useGetUserQuery } from '../../../store/api';
+import { useGetUserQuery } from '../../../service/api';
 import ErrorPage from '../../error';
 import { ErrorPageCode } from '../../error/types';
 

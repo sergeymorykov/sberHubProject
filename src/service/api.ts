@@ -1,9 +1,9 @@
 // Need to use the React-specific entry point to import createApi
 import { createApi, fetchBaseQuery, QueryReturnValue } from '@reduxjs/toolkit/query/react';
-import { GetInterestsResponse } from '../service/interests/types';
-import { interestsService } from '../service/interests';
-import { usersItem, GetUsersResponse } from '../service/users/types';
-import { usersService } from '../service/users';
+import { GetInterestsResponse } from './interests/types';
+import { interestsService } from './interests';
+import { usersItem, GetUsersResponse } from './users/types';
+import { usersService } from './users';
 
 const createQueryFromPromise =
   <ARGS, RES>(fn: (...args: Array<ARGS>) => Promise<RES>) =>
