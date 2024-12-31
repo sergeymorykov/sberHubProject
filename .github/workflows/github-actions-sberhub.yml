@@ -1,6 +1,10 @@
 name: GitHub Actions SberHub
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
-on: [push]
+on: 
+  push:
+    branches: [ "sergey" ]
+  pull_request:
+    branches: [ "main"]
 jobs:
   init:
     runs-on: ubuntu-latest
