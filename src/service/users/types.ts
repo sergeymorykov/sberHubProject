@@ -1,12 +1,13 @@
-import { InterestsItem } from "../interests/types";
+import { InterestsItem } from '../interests/types';
 
-export interface usersItem {
-    id: number;
-    username: string;
-    photo: string | null;
-    about: string | null;
-    email: string | null;
-    interest: Array<InterestsItem> | null;
+export interface userItem {
+  id: number;
+  username: string;
+  photo: string | null;
+  about: string | null;
+  email?: string | null;
+  interests: Array<InterestsItem> | null;
 }
 
-export type GetUsersResponse = Array<usersItem>;
+export type GetUserResponse = userItem;
+export type GetUsersResponse = Array<userItem>;

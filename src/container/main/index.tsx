@@ -9,7 +9,6 @@ const Main = (): React.ReactElement => {
     <Provider store={store}>
       <RouterProvider router={router} />
     </Provider>
-
   );
 };
 

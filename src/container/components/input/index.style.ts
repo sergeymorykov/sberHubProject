@@ -1,35 +1,33 @@
 import styled from '@emotion/styled';
 import TextField from '@mui/material/TextField';
 
-export const InputStyled = styled(TextField)`  
+export const InputStyled = styled(TextField)`
   & .MuiInputBase-input {
-      color: var(--tg-theme-text-color,rgba(0, 0, 0, 0.6));
+    color: var(--tg-theme-text-color, rgba(0, 0, 0, 0.6));
+  }
+
+  & .MuiFormLabel-root {
+    color: var(--tg-theme-text-color, rgba(0, 0, 0, 0.6));
+  }
+
+  & .Mui-focused .MuiFormLabel-root {
+    color: var(--tg-theme-label-focus-color, #0066ff);
+  }
+
+  & .MuiOutlinedInput-root {
+    fieldset {
+      border-color: var(--tg-theme-border-color, #cccccc);
     }
 
-    & .MuiFormLabel-root {
-      color: var(--tg-theme-text-color, rgba(0, 0, 0, 0.6));
-    }  
-
-    & .Mui-focused .MuiFormLabel-root {
-      color: var(--tg-theme-label-focus-color, #0066ff);
+    &:hover fieldset {
+      border-color: var(--tg-theme-border-hover, #888888);
     }
 
-    
-    & .MuiOutlinedInput-root {
-      fieldset {
-        border-color: var(--tg-theme-border-color, #cccccc);
-      }
-
-      &:hover fieldset {
-        border-color: var(--tg-theme-border-hover, #888888);
-      }
-
-      &.Mui-focused fieldset {
-        border-color: var(--tg-theme-border-focused, #0066ff);
-      }
-        
+    &.Mui-focused fieldset {
+      border-color: var(--tg-theme-border-focused, #0066ff);
     }
-  
+  }
+
   @media (prefers-color-scheme: dark) {
     & .MuiInputBase-input {
       color: var(--tg-theme-text-color-dark, #ffffff);
@@ -53,7 +51,7 @@ export const InputStyled = styled(TextField)`
       }
 
       &.Mui-focused fieldset {
-        border-color: var(--tg-theme-border-focused-dark, #0066ff); 
+        border-color: var(--tg-theme-border-focused-dark, #0066ff);
       }
     }
   }

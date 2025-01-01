@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
-import Avatar from "@mui/material/Avatar";
+import Avatar from '@mui/material/Avatar';
 
-export const PhotoStyled = styled.div<{ id: string, name: string, value: string | null }>`
+export const PhotoStyled = styled.div<{ id: string; name: string; value: string | null }>`
   position: relative;
   display: inline-block;
   cursor: pointer;
