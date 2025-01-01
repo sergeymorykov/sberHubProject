@@ -29,5 +29,11 @@ export default [
       ...hooksPlugin.configs.recommended.rules
     }
   },
+  {
+    files: ['stubs/api/**/*'],
+    rules: {
+      '@typescript-eslint/no-require-imports': 'off'
+    }
+  },
   pluginPrettier
 ];

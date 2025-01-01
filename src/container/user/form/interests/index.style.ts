@@ -10,7 +10,7 @@ export const InterestsStyled = styled(Select)`
     color: var(--tg-theme-text-color, #000000);
     border-radius: 8px;
     font-size: 14px;
-    box-shadow: none;    
+    box-shadow: none;
 
     &:hover {
       border-color: var(--tg-theme-border-hover, #888888);

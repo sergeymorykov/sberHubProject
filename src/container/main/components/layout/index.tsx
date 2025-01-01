@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect, ReactNode } from 'react';
 import { Outlet } from 'react-router-dom';
 import Header from './header';
 import Body from './body';
@@ -6,16 +6,20 @@ import useTelegram from '../../../../hooks/useTelegram';
 import ErrorPage from '../../../error';
 import { ErrorPageCode } from '../../../error/types';
 
-const CheckUserId = ({ children }) => {
+const CheckUserId = ({ children }: { children: ReactNode }) => {
   const [isUserValid, setIsUserValid] = useState(null);
   const { user_id } = useTelegram();
   useEffect(() => {
     const initTelegram = async () => {
-      user_id ? setIsUserValid(true) : setIsUserValid(false);
+      if (user_id) {
+        setIsUserValid(true);
+      } else {
+        setIsUserValid(false);
+      }
     };
 
     initTelegram();
-  }, []);
+  });
 
   if (isUserValid === null) {
     return <h1>Loading...</h1>;
@@ -25,11 +29,13 @@ const CheckUserId = ({ children }) => {
     return children;
   }
 
-  return (<ErrorPage 
-    errorCode={ErrorPageCode.NOT_FOUND}
-    errorTitle="Undefined Source"
-    errorInfo="Предназначено только для Telegram"
-  />);
+  return (
+    <ErrorPage
+      errorCode={ErrorPageCode.NOT_FOUND}
+      errorTitle="Undefined Source"
+      errorInfo="Предназначено только для Telegram"
+    />
+  );
 };
 
 const Layout = (): React.ReactElement => {
@@ -38,7 +44,7 @@ const Layout = (): React.ReactElement => {
       <Header />
       <Body>
         <CheckUserId>
-        <Outlet />
+          <Outlet />
         </CheckUserId>
       </Body>
     </>

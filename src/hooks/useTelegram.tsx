@@ -2,7 +2,7 @@ import WebApp from '@twa-dev/sdk';
 
 const useTelegram = () => {
   const tg = WebApp;
-  
+
   const onClose = () => {
     tg?.close();
   };
@@ -18,11 +18,11 @@ const useTelegram = () => {
   return {
     tg,
     onClose,
-    onToggleButton,    
+    onToggleButton,
     user_id: tg?.initDataUnsafe?.user?.id,
     user: tg?.initDataUnsafe?.user,
     username: tg?.initDataUnsafe?.user?.username,
-    queryId: tg?.initDataUnsafe?.query_id,
+    queryId: tg?.initDataUnsafe?.query_id
   };
 };
 

@@ -2,7 +2,7 @@
 import { createApi, fetchBaseQuery, QueryReturnValue } from '@reduxjs/toolkit/query/react';
 import { GetInterestsResponse } from './interests/types';
 import { interestsService } from './interests';
-import { usersItem, GetUsersResponse } from './users/types';
+import { userItem, GetUserResponse, GetUsersResponse } from './users/types';
 import { usersService } from './users';
 
 const createQueryFromPromise =
@@ -28,16 +28,17 @@ export const api = createApi({
     getUsers: builder.query<GetUsersResponse, undefined>({
       queryFn: createQueryFromPromise(() => usersService.getUsers())
     }),
-    getUser: builder.query<GetUsersResponse, { id: number | string}>({
-      queryFn: createQueryFromPromise(({id}) => usersService.getUser(id))
+    getUser: builder.query<GetUserResponse, { id: number | string }>({
+      queryFn: createQueryFromPromise(({ id }) => usersService.getUser(id))
     }),
-    updateUser: builder.mutation<GetUsersResponse, { id: number | string, data: any }>({
+    updateUser: builder.mutation<GetUserResponse, { id: number | string; data: userItem }>({
       queryFn: createQueryFromPromise(({ id, data }) => usersService.updateUser(id, data))
     }),
-    createUser: builder.mutation<GetUsersResponse, { data: any }>({
+    createUser: builder.mutation<GetUserResponse, { data: userItem }>({
       queryFn: createQueryFromPromise(({ data }) => usersService.createUser(data))
     })
   })
 });
 
-export const { useGetInterestsQuery, useGetUsersQuery, useGetUserQuery, useCreateUserMutation, useUpdateUserMutation } = api;
+export const { useGetInterestsQuery, useGetUsersQuery, useGetUserQuery, useCreateUserMutation, useUpdateUserMutation } =
+  api;

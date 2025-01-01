@@ -1,12 +1,8 @@
-import * as React from 'react';;
+import React, { ReactNode } from 'react';
 import { InfoStyled } from './index.style';
 
-const Info = ({children}): React.ReactElement => {
-    return (
-        <InfoStyled>
-            {children}
-        </InfoStyled>
-    );
-}
+const Info = ({ children }: { children: ReactNode }): React.ReactElement => {
+  return <InfoStyled>{children}</InfoStyled>;
+};
 
 export default Info;

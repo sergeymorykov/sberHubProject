@@ -9,7 +9,7 @@ const Header = (): React.ReactElement => {
       <AppBarStyled position="static">
         <Toolbar>
           <Logo />
-        </Toolbar>          
+        </Toolbar>
       </AppBarStyled>
     </header>
   );

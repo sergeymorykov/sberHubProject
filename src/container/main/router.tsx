@@ -1,4 +1,4 @@
-import React, { useState, useEffect, use } from 'react';
+import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 import SingUpPage from '../user/signup';
 import EditUserPage from '../user/edit';
@@ -22,12 +22,13 @@ export const router = createBrowserRouter([
       },
       {
         path: '*',
-        element: 
+        element: (
           <ErrorPage
-           errorCode={ErrorPageCode.NOT_FOUND} 
-           errorTitle="Undefined app name"
-           errorInfo="Вы запросили приложение по адресу undefined"
+            errorCode={ErrorPageCode.NOT_FOUND}
+            errorTitle="Undefined app name"
+            errorInfo="Вы запросили приложение по адресу undefined"
           />
+        )
       }
     ]
   }
