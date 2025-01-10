@@ -4,6 +4,8 @@ import { GetInterestsResponse } from './interests/types';
 import { interestsService } from './interests';
 import { userItem, GetUserResponse, GetUsersResponse } from './users/types';
 import { usersService } from './users';
+import { GetEventsResponse } from './events/types';
+import { eventsService } from './events';
 
 const createQueryFromPromise =
   <ARGS, RES>(fn: (...args: Array<ARGS>) => Promise<RES>) =>
@@ -36,9 +38,18 @@ export const api = createApi({
     }),
     createUser: builder.mutation<GetUserResponse, { data: userItem }>({
       queryFn: createQueryFromPromise(({ data }) => usersService.createUser(data))
+    }),
+    getEvents: builder.query<GetEventsResponse, undefined>({
+      queryFn: createQueryFromPromise(() => eventsService.getEvents())
     })
   })
 });
 
-export const { useGetInterestsQuery, useGetUsersQuery, useGetUserQuery, useCreateUserMutation, useUpdateUserMutation } =
-  api;
+export const {
+  useGetInterestsQuery,
+  useGetUsersQuery,
+  useGetUserQuery,
+  useCreateUserMutation,
+  useUpdateUserMutation,
+  useGetEventsQuery
+} = api;

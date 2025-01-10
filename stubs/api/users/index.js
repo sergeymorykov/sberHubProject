@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
 
 router.get('/:id', (req, res) => {
   const userId = parseInt(req.params.id);
-  res.json(data.findOne((item) => (item.id = userId)));
+  res.json(data.find((item) => (item.id = userId)));
 });
 
 router.post('/', (req, res) => {

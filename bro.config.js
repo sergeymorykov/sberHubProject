@@ -13,7 +13,8 @@ module.exports = {
     'sberhubproject.main': '/sberhubproject',
     'sberhubproject.error': '/sberhubproject/error',
     'sberhubproject.signup': '/sberhubproject/signup',
-    'sberhubproject.editUser': '/sberhubproject/edit-user'
+    'sberhubproject.editUser': '/sberhubproject/edit-user',
+    'sberhubproject.eventList': '/sberhubproject/event-list'
   },
   features: {
     sberhubproject: {
