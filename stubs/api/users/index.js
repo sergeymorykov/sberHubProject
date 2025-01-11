@@ -19,4 +19,4 @@ router.post('/', (req, res) => {
 
 router.put('/:id', (req, res) => {
   res.status(200).send();
-});
+})
