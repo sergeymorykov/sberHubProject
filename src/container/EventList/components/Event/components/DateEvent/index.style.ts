@@ -15,7 +15,7 @@ export const DateEventStyled = styled.div`
   float: right;
 `;
 
-export const DateEventConteinerStyled = styled.div`
-  width: 100%;
-  margin-top: 24px;
+export const DateEventBoxStyled = styled.div`
+  width: 100%;  
+  margin-bottom: 16px;
 `;

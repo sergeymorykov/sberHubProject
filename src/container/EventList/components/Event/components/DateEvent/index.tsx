@@ -1,13 +1,13 @@
 import React from 'react';
 import { DateEventProps } from './types';
-import { DateEventConteinerStyled, DateEventTextStyled, DateEventStyled } from './index.style';
+import { DateEventBoxStyled, DateEventTextStyled, DateEventStyled } from './index.style';
 
 const DateEvent = ({ date }: DateEventProps): React.ReactElement => {
   return (
-    <DateEventConteinerStyled>
+    <DateEventBoxStyled>
       <DateEventTextStyled>Дата события:</DateEventTextStyled>
       <DateEventStyled>{new Date(date).toLocaleString()}</DateEventStyled>
-    </DateEventConteinerStyled>
+    </DateEventBoxStyled>
   );
 };
 

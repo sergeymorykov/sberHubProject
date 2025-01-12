@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
+import Button from '@mui/material/Button';
 
-export const ButtonStyled = styled.button`
+export const ButtonStyled = styled(Button)`
   background-color: var(--tg-theme-button-color);
   color: var(--tg-theme-button-text-color);
   margin-bottom: 24px;
