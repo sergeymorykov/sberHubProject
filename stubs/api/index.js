@@ -10,7 +10,7 @@ const delay =
     setTimeout(next, ms);
   };
 
-router.use(delay(1000));
+router.use(delay());
 router.use('/interests', interestsRouter);
 router.use('/users', usersRouter);
 router.use('/users/:id', usersRouter);

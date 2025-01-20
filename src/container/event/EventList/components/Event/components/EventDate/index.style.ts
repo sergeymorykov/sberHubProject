@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-export const DateEventTextStyled = styled.div`
+export const EventDateTextStyled = styled.div`
   color: var(--tg-theme-hint-color);
   font-size: 0.875rem;
   font-weight: bold;
@@ -8,14 +8,14 @@ export const DateEventTextStyled = styled.div`
   float: left;
 `;
 
-export const DateEventStyled = styled.div`
+export const EventDateStyled = styled.div`
   color: var(--tg-theme-hint-color);
   font-size: 0.875rem;
   display: inline-block;
   float: right;
 `;
 
-export const DateEventBoxStyled = styled.div`
-  width: 100%;  
+export const EventDateBoxStyled = styled.div`
+  width: 100%;
   margin-bottom: 16px;
 `;

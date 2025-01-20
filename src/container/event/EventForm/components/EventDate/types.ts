@@ -1,3 +1,3 @@
-export interface DateEventProps {
+export interface EventDateProps {
   date: number | string | Date;
 }
