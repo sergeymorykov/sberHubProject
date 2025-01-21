@@ -6,7 +6,6 @@ import EventDate from './components/EventDate';
 import { Button } from '@mui/material';
 import { EventProps } from './types';
 
-
 const Event = ({ name, description, date }: EventProps): React.ReactElement => {
   const handleParticipateEvent = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -17,7 +16,9 @@ const Event = ({ name, description, date }: EventProps): React.ReactElement => {
       <Title>{name}</Title>
       <Description>{description}</Description>
       <EventDate date={date} />
-      <Button type="submit" fullWidth variant="contained">Участвовать</Button>
+      <Button type="submit" fullWidth variant="contained">
+        Участвовать
+      </Button>
     </EventStyled>
   );
 };

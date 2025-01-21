@@ -54,7 +54,7 @@ const UserForm = ({ user = null }: { user: userItem | null }): React.ReactElemen
       <FormStyled onSubmit={handleSubmit}>
         <Grid2 container>
           <GridChildrenStyle size={6}>
-            <TextField 
+            <TextField
               required
               id="lastname"
               label="Фамилия"
@@ -65,7 +65,7 @@ const UserForm = ({ user = null }: { user: userItem | null }): React.ReactElemen
             />
           </GridChildrenStyle>
           <GridChildrenStyle size={6}>
-            <TextField 
+            <TextField
               required
               id="firstname"
               label="Имя"
@@ -76,7 +76,7 @@ const UserForm = ({ user = null }: { user: userItem | null }): React.ReactElemen
             />
           </GridChildrenStyle>
           <GridChildrenStyle size={12}>
-          <TextField 
+            <TextField
               id="about"
               label="Обо мне"
               name="about"

@@ -19,42 +19,39 @@ const EventForm = (): React.ReactElement => {
 
   return (
     <EventFormStyled>
-        <Title text="Создание события" />
-      <Grid2 container>        
+      <Title>Создание события</Title>
+      <Grid2 container>
         <GridChildrenStyle size={12}>
-          <TextField
-            required
-            id="name"
-            label="Название события"
-            name="name"
-          />
+          <TextField required id="name" label="Название события" name="name" />
         </GridChildrenStyle>
         <GridChildrenStyle size={12}>
           <TextField
             id="description"
             label="Описание"
             name="description"
-            placeholder="Напишите описание события..." 
+            placeholder="Напишите описание события..."
             multiline
-            rows={3}            
+            rows={3}
           />
         </GridChildrenStyle>
         <GridChildrenStyle size={12}>
-        <LocalizationProvider 
-          localeText={ruRU.components.MuiLocalizationProvider.defaultProps.localeText}
-          dateAdapter={AdapterDayjs}
-          adapterLocale="ru"
-        >
-          <MobileDatePicker 
-            localeText={{clearButtonLabel: 'Vider'}}
-            value={value}
-            format="DD MMMM YYYY"
-            onChange={(newValue) => setValue(newValue)} 
-          />
-        </LocalizationProvider>
+          <LocalizationProvider
+            localeText={ruRU.components.MuiLocalizationProvider.defaultProps.localeText}
+            dateAdapter={AdapterDayjs}
+            adapterLocale="ru"
+          >
+            <MobileDatePicker
+              localeText={{ clearButtonLabel: 'Vider' }}
+              value={value}
+              format="DD MMMM YYYY"
+              onChange={(newValue) => setValue(newValue)}
+            />
+          </LocalizationProvider>
         </GridChildrenStyle>
         <GridChildrenStyle size={12}>
-          <Button type="submit" fullWidth variant="contained">Добавить событие</Button>
+          <Button type="submit" fullWidth variant="contained">
+            Добавить событие
+          </Button>
         </GridChildrenStyle>
       </Grid2>
     </EventFormStyled>
