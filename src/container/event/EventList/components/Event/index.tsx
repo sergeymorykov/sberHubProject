@@ -3,7 +3,7 @@ import { EventStyled } from './index.style';
 import Title from './components/Title';
 import Description from './components/Description';
 import EventDate from './components/EventDate';
-import Button from './components/Button';
+import { Button } from '@mui/material';
 import { EventProps } from './types';
 
 
@@ -14,10 +14,10 @@ const Event = ({ name, description, date }: EventProps): React.ReactElement => {
 
   return (
     <EventStyled onClick={handleParticipateEvent}>
-      <Title text={name} />
-      <Description text={description} />
+      <Title>{name}</Title>
+      <Description>{description}</Description>
       <EventDate date={date} />
-      <Button>Участвовать</Button>
+      <Button type="submit" fullWidth variant="contained">Участвовать</Button>
     </EventStyled>
   );
 };

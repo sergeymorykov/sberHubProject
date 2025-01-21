@@ -12,6 +12,6 @@ export const EventStyled = styled.form`
   transition: box-shadow 0.3s ease;
 
   &:hover {
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 20px rgb(from var(--tg-theme-text-color) r g b / 50%);
   }
 `;

@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
+import { Typography } from '@mui/material';
 
-export const EventDateTextStyled = styled.div`
+export const EventDateTextStyled = styled(Typography)`
   color: var(--tg-theme-hint-color);
   font-size: 0.875rem;
   font-weight: bold;
@@ -8,7 +9,7 @@ export const EventDateTextStyled = styled.div`
   float: left;
 `;
 
-export const EventDateStyled = styled.div`
+export const EventDateStyled = styled(Typography)`
   color: var(--tg-theme-hint-color);
   font-size: 0.875rem;
   display: inline-block;

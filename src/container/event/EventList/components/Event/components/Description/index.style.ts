@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
+import { Typography } from '@mui/material';
 
-export const DescriptionStyled = styled.span`
-  color: var(--tg-theme-text-color);
-  font-size: 1rem;
+export const DescriptionStyled = styled(Typography)`
+  font-size: 0.9rem;
   margin-bottom: 24px;
 `;

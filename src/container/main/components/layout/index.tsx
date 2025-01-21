@@ -5,6 +5,9 @@ import Body from './body';
 import useTelegram from '../../../../hooks/useTelegram';
 import ErrorPage from '../../../error';
 import { ErrorPageCode } from '../../../error/types';
+import { ThemeProvider } from '@mui/material/styles';
+import { telegramTheme } from './theme/TelegramTheme';
+
 
 const CheckUserId = ({ children }: { children: ReactNode }) => {
   const [isUserValid, setIsUserValid] = useState(null);
@@ -38,16 +41,18 @@ const CheckUserId = ({ children }: { children: ReactNode }) => {
   );
 };
 
+
 const Layout = (): React.ReactElement => {
+
   return (
-    <>
+    <ThemeProvider theme={telegramTheme}>
       <Header />
       <Body>
         <CheckUserId>
           <Outlet />
         </CheckUserId>
       </Body>
-    </>
+    </ThemeProvider>
   );
 };
 

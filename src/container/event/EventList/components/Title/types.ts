@@ -1,3 +1,5 @@
+import React from "react";
+
 export interface TitleProps {
-  text: string;
+  children: React.ReactNode;
 }

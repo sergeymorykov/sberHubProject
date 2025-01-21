@@ -11,7 +11,7 @@ const EventList = (): React.ReactElement => {
 
   return (
     <EventListStyled>
-      <Title text="Список событий" />
+      <Title>Список событий</Title>
       <Button>Добавить событие</Button>
       {isLoading && <Loading />}
       {error && <div>Произошла ошибка</div>}

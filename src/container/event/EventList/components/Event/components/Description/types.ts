@@ -1,3 +1,3 @@
 export interface DescriptionProps {
-  text: string;
+  children: string;
 }
