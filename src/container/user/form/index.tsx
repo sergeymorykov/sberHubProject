@@ -1,17 +1,16 @@
 import React, { useState } from 'react';
 import { Grid2, Container } from '@mui/material';
 import Title from './title';
-import Name from './name';
-import About from './about';
 import Photo from './photo';
 import Interests from './interests';
-import Button from './button';
 import { FormStyled, GridChildrenStyle } from './index.style';
 import useTelegram from '../../../hooks/useTelegram';
 import { useUpdateUserMutation, useCreateUserMutation } from '../../../service/api';
-import { usersItem } from '../../../service/users/types';
+import { userItem } from '../../../service/users/types';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
 
-const UserForm = ({ user = null }: { user: usersItem | null }): React.ReactElement => {
+const UserForm = ({ user = null }: { user: userItem | null }): React.ReactElement => {
   const { user_id, onClose } = useTelegram();
   const [error, setError] = useState<string | null>(null);
 
@@ -55,31 +54,37 @@ const UserForm = ({ user = null }: { user: usersItem | null }): React.ReactEleme
       <FormStyled onSubmit={handleSubmit}>
         <Grid2 container>
           <GridChildrenStyle size={6}>
-            <Name
+            <TextField
+              required
               id="lastname"
               label="Фамилия"
               name="lastname"
               autoComplete="family-name"
+              fullWidth
               defaultValue={user?.username.split(' ')[1]}
             />
           </GridChildrenStyle>
           <GridChildrenStyle size={6}>
-            <Name
+            <TextField
+              required
               id="firstname"
               label="Имя"
               name="firstname"
               autoComplete="given-name"
+              fullWidth
               defaultValue={user?.username.split(' ')[0]}
             />
           </GridChildrenStyle>
           <GridChildrenStyle size={12}>
-            <About
-              rows={3}
+            <TextField
               id="about"
               label="Обо мне"
               name="about"
               placeholder="Напишите о себе"
               defaultValue={user?.about}
+              fullWidth
+              multiline
+              rows={3}
             />
           </GridChildrenStyle>
           <GridChildrenStyle size={12}>
