@@ -1,16 +1,16 @@
 import React from 'react';
 import Logo from './logo';
-import { AppBarStyled } from './index.style';
+import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 
 const Header = (): React.ReactElement => {
   return (
     <header>
-      <AppBarStyled position="static">
+      <AppBar position="static">
         <Toolbar>
           <Logo />
         </Toolbar>
-      </AppBarStyled>
+      </AppBar>
     </header>
   );
 };

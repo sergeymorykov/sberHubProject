@@ -6,6 +6,8 @@ import ErrorPage from '../error';
 import { ErrorPageCode } from '../error/types';
 import { getNavigationsValue } from '@brojs/cli';
 import Layout from './components/layout';
+import EventList from '../event/EventList';
+import EventForm from '../event/EventForm';
 
 export const router = createBrowserRouter([
   {
@@ -19,6 +21,14 @@ export const router = createBrowserRouter([
       {
         path: getNavigationsValue('sberhubproject.editUser'),
         element: <EditUserPage />
+      },
+      {
+        path: getNavigationsValue('sberhubproject.eventList'),
+        element: <EventList />
+      },
+      {
+        path: getNavigationsValue('sberhubproject.eventForm'),
+        element: <EventForm />
       },
       {
         path: '*',
