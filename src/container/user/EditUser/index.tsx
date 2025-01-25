@@ -1,9 +1,9 @@
 import React from 'react';
-import UserForm from '../form';
+import UserForm from '../UserForm';
 import useTelegram from '../../../hooks/useTelegram';
 import { useGetUserQuery } from '../../../service/api';
 
-const EditUserPage = (): React.ReactElement => {
+const EditUser = (): React.ReactElement => {
   const { user_id } = useTelegram();
 
   const { data, isLoading, error } = useGetUserQuery({ id: user_id });
@@ -16,4 +16,4 @@ const EditUserPage = (): React.ReactElement => {
   );
 };
 
-export default EditUserPage;
+export default EditUser;

@@ -1,9 +1,9 @@
 import { Container } from '@mui/material';
 import { ErrorPageProps } from './types';
 import React from 'react';
-import Title from './title';
-import Info from './info';
-import IconError from './icon';
+import Title from './Title';
+import Info from './Info';
+import IconError from './IconError';
 
 const ErrorPage = ({ errorCode, errorTitle, errorInfo }: ErrorPageProps): React.ReactElement => {
   return (

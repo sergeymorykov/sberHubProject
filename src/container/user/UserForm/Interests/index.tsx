@@ -2,12 +2,13 @@ import * as React from 'react';
 import { useState } from 'react';
 import { InterestsStyled } from './index.style';
 import { useGetInterestsQuery } from '../../../../service/api';
+import { InterestsItem } from '../../../../service/interests/types';
 import { InterestsProps } from './types';
 
 const Interests = ({ id, name, defaultValues = null }: InterestsProps): React.ReactElement => {
   const { data, isLoading, error } = useGetInterestsQuery(undefined);
 
-  const [selectedInterests, setSelectedInterests] = useState<string | null>(defaultValues);
+  const [selectedInterests, setSelectedInterests] = useState<InterestsItem[]>(defaultValues);
 
   const handleChange = (selectedInterests) => {
     setSelectedInterests(selectedInterests);

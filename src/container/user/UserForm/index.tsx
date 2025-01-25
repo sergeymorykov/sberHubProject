@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Grid2, Container } from '@mui/material';
-import Title from './title';
-import Photo from './photo';
-import Interests from './interests';
+import Title from './Title';
+import Photo from './Photo';
+import Interests from './Interests';
 import { FormStyled, GridChildrenStyle } from './index.style';
 import useTelegram from '../../../hooks/useTelegram';
 import { useUpdateUserMutation, useCreateUserMutation } from '../../../service/api';
@@ -10,7 +10,7 @@ import { userItem } from '../../../service/users/types';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 
-const UserForm = ({ user = null }: { user: userItem | null }): React.ReactElement => {
+const UserForm = ({ user = null }: { user?: userItem }): React.ReactElement => {
   const { user_id, onClose } = useTelegram();
   const [error, setError] = useState<string | null>(null);
 
@@ -94,7 +94,7 @@ const UserForm = ({ user = null }: { user: userItem | null }): React.ReactElemen
             <Interests id="interests" name="interests" defaultValues={user?.interests} />
           </GridChildrenStyle>
           <GridChildrenStyle size={12}>
-            <Button>{user ? 'Сохранить' : 'Регистрация'}</Button>
+            <Button type="submit" fullWidth variant="contained">{user ? 'Сохранить' : 'Регистрация'}</Button>
           </GridChildrenStyle>
           {error && <GridChildrenStyle size={12}>Произошла ошибка</GridChildrenStyle>}
         </Grid2>
