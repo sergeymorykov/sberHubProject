@@ -3,8 +3,8 @@ import { Outlet } from 'react-router-dom';
 import Header from './header';
 import Body from './body';
 import useTelegram from '../../../../hooks/useTelegram';
-import ErrorPage from '../../../error';
-import { ErrorPageCode } from '../../../error/types';
+import ErrorPage from '../../../ErrorPage';
+import { ErrorPageCode } from '../../../ErrorPage/types';
 import { ThemeProvider } from '@mui/material/styles';
 import { telegramTheme } from './theme/TelegramTheme';
 
@@ -33,7 +33,7 @@ const CheckUserId = ({ children }: { children: ReactNode }) => {
 
   return (
     <ErrorPage
-      errorCode={ErrorPageCode.NOT_FOUND}
+      errorCode={ErrorPageCode.SERVER_ERROR}
       errorTitle="Undefined Source"
       errorInfo="Предназначено только для Telegram"
     />
@@ -41,14 +41,22 @@ const CheckUserId = ({ children }: { children: ReactNode }) => {
 };
 
 const Layout = (): React.ReactElement => {
+  const outerTheme = {
+    palette: {
+      mode: 'dark'
+    }
+  };
+
   return (
-    <ThemeProvider theme={telegramTheme}>
-      <Header />
-      <Body>
-        <CheckUserId>
-          <Outlet />
-        </CheckUserId>
-      </Body>
+    <ThemeProvider theme={outerTheme}>
+      <ThemeProvider theme={telegramTheme}>
+        <Header />
+        <Body>
+          <CheckUserId>
+            <Outlet />
+          </CheckUserId>
+        </Body>
+      </ThemeProvider>
     </ThemeProvider>
   );
 };
