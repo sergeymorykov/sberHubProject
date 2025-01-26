@@ -3,6 +3,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import SingUpPage from '../user/SignUp';
 import EditUser from '../user/EditUser';
 import ErrorPage from '../ErrorPage';
+import UserList from '../user/UserList';
 import { ErrorPageCode } from '../ErrorPage/types';
 import { getNavigationsValue } from '@brojs/cli';
 import Layout from './components/layout';
@@ -29,6 +30,10 @@ export const router = createBrowserRouter([
       {
         path: getNavigationsValue('sberhubproject.eventForm'),
         element: <EventForm />
+      },
+      {
+        path: getNavigationsValue('sberhubproject.userList'),
+        element: <UserList />
       },
       {
         path: '*',

@@ -121,9 +121,18 @@ export const telegramTheme = (theme) =>
         styleOverrides: {
           root: {
             backgroundColor: 'var(--tg-theme-button-color)',
-            color: 'var(--tg-theme-button-text-color)'
+            color: 'var(--tg-theme-button-text-color)',
+            boxShadow: '0 4px 20px rgb(from var(--tg-theme-text-color) r g b / 20%)'
           }
         }
+      },
+      MuiPaper: {
+        styleOverrides: {
+          root: {
+            backgroundColor: 'var(--tg-theme-bg-color)',
+            color: 'var(--tg-theme-text-color)'
+          }
+        }  
       }
     }
   });
