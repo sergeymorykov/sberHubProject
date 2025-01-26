@@ -1,5 +1,5 @@
 import React from 'react';
-import UserForm from '../form';
+import UserForm from '../UserForm';
 
 const SingUpPage = (): React.ReactElement => {
   return <UserForm />;

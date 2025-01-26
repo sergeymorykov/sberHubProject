@@ -1,9 +1,9 @@
 import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
-import SingUpPage from '../user/signup';
-import EditUserPage from '../user/edit';
-import ErrorPage from '../error';
-import { ErrorPageCode } from '../error/types';
+import SingUpPage from '../user/SignUp';
+import EditUser from '../user/EditUser';
+import ErrorPage from '../ErrorPage';
+import { ErrorPageCode } from '../ErrorPage/types';
 import { getNavigationsValue } from '@brojs/cli';
 import Layout from './components/layout';
 import EventList from '../event/EventList';
@@ -20,7 +20,7 @@ export const router = createBrowserRouter([
       },
       {
         path: getNavigationsValue('sberhubproject.editUser'),
-        element: <EditUserPage />
+        element: <EditUser />
       },
       {
         path: getNavigationsValue('sberhubproject.eventList'),

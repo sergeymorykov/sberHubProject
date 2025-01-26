@@ -116,6 +116,14 @@ export const telegramTheme = (theme) =>
             color: 'var(--tg-theme-text-color)'
           }
         }
+      },
+      MuiAvatar: {
+        styleOverrides: {
+          root: {
+            backgroundColor: 'var(--tg-theme-button-color)',
+            color: 'var(--tg-theme-button-text-color)'
+          }
+        }
       }
     }
   });
