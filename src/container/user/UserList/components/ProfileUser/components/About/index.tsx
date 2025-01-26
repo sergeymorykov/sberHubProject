@@ -1,12 +1,12 @@
 import React from 'react';
-import { AboutStyled } from './index.style';
+import { TypographyStyled } from './index.style';
 
 interface AboutProps {
   children: React.ReactNode;
 }
 
-const About = ({children}: AboutProps): React.ReactElement => {
-  return <AboutStyled variant="body2">{children}</AboutStyled>;
-}
+const About = ({ children }: AboutProps): React.ReactElement => {
+  return <TypographyStyled variant="body2">{children}</TypographyStyled>;
+};
 
 export default About;

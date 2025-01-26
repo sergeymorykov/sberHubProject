@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { Grid2 } from '@mui/material';
+import Grid2 from '@mui/material/Grid2';
 
 export const GridChildrenStyle = styled(Grid2)`
   display: flex;

@@ -1,5 +1,5 @@
 import React from 'react';
-import Logo from './logo';
+import Logo from './Logo';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 

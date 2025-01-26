@@ -1,38 +1,25 @@
-import React, { useState } from 'react';
-import { Box, Paper } from '@mui/material';
+import React from 'react';
 import ProfileUser from './components/ProfileUser';
 import { useGetUsersQuery } from '../../../service/api';
-import useTelegram from '../../../hooks/useTelegram';
+import { PaperStyled } from './index.style';
 import Title from './components/Title';
+import Loading from '../../components/Loading';
 
-const ListUsers = (): React.ReactElement => {
-    const { data, isLoading, error } = useGetUsersQuery(undefined);
-    const { user_id } = useTelegram();
-    
-    const [currentIndex, setCurrentIndex] = useState(0);
+const UserList = (): React.ReactElement => {
+  const { data, isLoading, error } = useGetUsersQuery(undefined);
 
-
-    return (
-      <>
-      {isLoading && <div>Loading...</div>}
+  return (
+    <>
+      {isLoading && <Loading />}
       {error && <div>Произошла ошибка</div>}
-      {data && 
-        <Paper elevation={3} sx={{ p: 1, borderRadius: '15px'}}>
-          <Box
-            sx={{
-              display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-            }}
-            >
-              <Title>Профиль пользователя</Title>
-              <ProfileUser user={data[0]} />
-          </Box>
-        </Paper>
-      }
-      </>
-      
-    );
-}
+      {data && (
+        <PaperStyled elevation={3}>
+          <Title>Профиль пользователя</Title>
+          <ProfileUser user={data[0]} />
+        </PaperStyled>
+      )}
+    </>
+  );
+};
 
-export default ListUsers;
+export default UserList;

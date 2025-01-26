@@ -1,6 +1,6 @@
 import React from 'react';
 import { InterestsItem } from '../../../../../../../service/interests/types';
-import { InterestsStyled } from './index.style';
+import { BoxStyled } from './index.style';
 import { Typography } from '@mui/material';
 
 interface InterestsProps {
@@ -8,17 +8,13 @@ interface InterestsProps {
 }
 
 const Interests = ({ interests }: InterestsProps): React.ReactElement => {
-
   return (
-    <InterestsStyled>
+    <BoxStyled>
       {interests.map((interest, index) => (
-        <Typography key={index}>
-          {interest.value}
-        </Typography>
+        <Typography key={index}>{interest.value}</Typography>
       ))}
-    </InterestsStyled>
+    </BoxStyled>
   );
-
 };
 
 export default Interests;

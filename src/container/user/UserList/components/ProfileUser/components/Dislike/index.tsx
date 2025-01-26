@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import Lottie from 'lottie-react';
-import animationDislike from './animationDislike.json';
-import { DislikeStyled } from './index.style';
+import animationDislike from './data/animationDislike.json';
+import { ButtonStyled } from './index.style';
 
 const Dislike = (): React.ReactElement => {
   const lottieRef = useRef(null);
@@ -14,17 +14,9 @@ const Dislike = (): React.ReactElement => {
   };
 
   return (
-    <DislikeStyled
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-    >
-      <Lottie
-        lottieRef={lottieRef}
-        animationData={animationDislike}
-        loop={false}
-        autoplay={false}
-      />
-    </DislikeStyled>
+    <ButtonStyled onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+      <Lottie lottieRef={lottieRef} animationData={animationDislike} loop={false} autoplay={false} />
+    </ButtonStyled>
   );
 };
 

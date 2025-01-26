@@ -132,7 +132,7 @@ export const telegramTheme = (theme) =>
             backgroundColor: 'var(--tg-theme-bg-color)',
             color: 'var(--tg-theme-text-color)'
           }
-        }  
+        }
       }
     }
   });

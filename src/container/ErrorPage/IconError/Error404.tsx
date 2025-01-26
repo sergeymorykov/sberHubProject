@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import Lottie from 'lottie-react';
-import animation404 from './Animation404.json';
+import animation404 from './data/Animation404.json';
 
 export const Error404 = () => {
   const lottieRef = useRef(null);

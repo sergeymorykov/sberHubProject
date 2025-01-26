@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
-import { Typography } from '@mui/material';
+import Typography from '@mui/material/Typography';
 
-export const AboutStyled = styled(Typography)`
+export const TypographyStyled = styled(Typography)`
   text-align: center;
   margin-bottom: 16px;
   padding: 8px 16px;

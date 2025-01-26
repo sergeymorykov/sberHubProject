@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import Lottie from 'lottie-react';
-import animation500 from './Animation500.json';
+import animation500 from './data/Animation500.json';
 
 export const Error500 = () => {
   const lottieRef = useRef(null);

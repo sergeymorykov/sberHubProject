@@ -1,9 +1,9 @@
 import React from 'react';
-import { EventStyled } from './index.style';
 import Title from './components/Title';
 import Description from './components/Description';
 import EventDate from './components/EventDate';
-import { Button } from '@mui/material';
+import Button from '@mui/material/Button';
+import { EventStyled } from './index.style';
 import { EventProps } from './types';
 
 const Event = ({ name, description, date }: EventProps): React.ReactElement => {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { EventFormStyled } from './index.style';
 import Title from './components/Title';
-import { Grid2 } from '@mui/material';
+import Grid2 from '@mui/material/Grid2';
 import { GridChildrenStyle } from './index.style';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
