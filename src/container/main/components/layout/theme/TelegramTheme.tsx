@@ -27,8 +27,10 @@ export const telegramTheme = (theme) =>
             color: 'var(--tg-theme-button-text-color)',
             backgroundColor: 'var(--tg-theme-button-color)',
             '&:hover': {
-              backgroundColor: 'var(--tg-theme-link-color)',
-              boxShadow: 'none'
+              '@media (hover: hover)': {
+                backgroundColor: 'var(--tg-theme-link-color)',
+                boxShadow: 'none'
+              }
             }
           }
         }
@@ -50,7 +52,9 @@ export const telegramTheme = (theme) =>
                 borderColor: 'var(--tg-theme-text-color)'
               },
               '&:hover fieldset': {
-                borderColor: '#888888'
+                '@media (hover: hover)': {
+                  borderColor: '#888888'
+                }
               },
               '&.Mui-focused fieldset': {
                 borderColor: ' #0066ff'
@@ -86,7 +90,9 @@ export const telegramTheme = (theme) =>
               backgroundColor: 'var(--tg-theme-button-color)'
             },
             '&:hover': {
-              backgroundColor: 'var(--tg-theme-link-color)'
+              '@media (hover: hover)': {
+                backgroundColor: 'var(--tg-theme-link-color)'
+              }
             }
           },
           today: {
@@ -114,6 +120,30 @@ export const telegramTheme = (theme) =>
         styleOverrides: {
           button: {
             color: 'var(--tg-theme-text-color)'
+          }
+        }
+      },
+      MuiAvatar: {
+        styleOverrides: {
+          root: {
+            backgroundColor: 'var(--tg-theme-button-color)',
+            color: 'var(--tg-theme-button-text-color)',
+            boxShadow: '0 4px 20px rgb(from var(--tg-theme-text-color) r g b / 20%)'
+          }
+        }
+      },
+      MuiPaper: {
+        styleOverrides: {
+          root: {
+            backgroundColor: 'var(--tg-theme-bg-color)',
+            color: 'var(--tg-theme-text-color)'
+          }
+        }
+      },
+      MuiCircularProgress: {
+        styleOverrides: {
+          root: {
+            color: 'var(--tg-theme-button-color)'
           }
         }
       }

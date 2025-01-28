@@ -15,7 +15,8 @@ module.exports = {
     'sberhubproject.signup': '/sberhubproject/signup',
     'sberhubproject.editUser': '/sberhubproject/edit-user',
     'sberhubproject.eventList': '/sberhubproject/event-list',
-    'sberhubproject.eventForm': '/sberhubproject/event-form'
+    'sberhubproject.eventForm': '/sberhubproject/event-form',
+    'sberhubproject.userList': '/sberhubproject/user-list'
   },
   features: {
     sberhubproject: {
