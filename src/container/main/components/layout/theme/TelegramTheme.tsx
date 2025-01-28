@@ -6,7 +6,7 @@ export const telegramTheme = (theme) =>
     cssVariables: {
       cssVarPrefix: 'any'
     },
-    components: {   
+    components: {
       MuiAppBar: {
         styleOverrides: {
           colorPrimary: {
@@ -30,7 +30,7 @@ export const telegramTheme = (theme) =>
               '@media (hover: hover)': {
                 backgroundColor: 'var(--tg-theme-link-color)',
                 boxShadow: 'none'
-              }            
+              }
             }
           }
         }
@@ -51,7 +51,7 @@ export const telegramTheme = (theme) =>
               '& fieldset': {
                 borderColor: 'var(--tg-theme-text-color)'
               },
-              '&:hover fieldset': {                
+              '&:hover fieldset': {
                 '@media (hover: hover)': {
                   borderColor: '#888888'
                 }
@@ -89,7 +89,7 @@ export const telegramTheme = (theme) =>
               color: 'var(--tg-theme-button-text-color)',
               backgroundColor: 'var(--tg-theme-button-color)'
             },
-            '&:hover': {              
+            '&:hover': {
               '@media (hover: hover)': {
                 backgroundColor: 'var(--tg-theme-link-color)'
               }

@@ -9,11 +9,7 @@ interface InterestsProps {
 
 const Interests = ({ interests }: InterestsProps): React.ReactElement => {
   return (
-    <BoxStyled>
-      {interests?.map((interest, index) => (
-        <Typography key={index}>{interest.value}</Typography>
-      ))}
-    </BoxStyled>
+    <BoxStyled>{interests?.map((interest, index) => <Typography key={index}>{interest.value}</Typography>)}</BoxStyled>
   );
 };
 

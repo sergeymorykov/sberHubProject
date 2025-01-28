@@ -30,8 +30,8 @@ export const api = createApi({
     getUsers: builder.query<GetUsersResponse, undefined>({
       queryFn: createQueryFromPromise(() => usersService.getUsers())
     }),
-    getPartialUsers: builder.query<GetUsersResponse, {pageSize: number, page: number}>({
-      queryFn: createQueryFromPromise(({pageSize, page}) => usersService.getPartialUsers(pageSize, page))
+    getPartialUsers: builder.query<GetUsersResponse, { pageSize: number; page: number }>({
+      queryFn: createQueryFromPromise(({ pageSize, page }) => usersService.getPartialUsers(pageSize, page))
     }),
     getUser: builder.query<GetUserResponse, { id: number | string }>({
       queryFn: createQueryFromPromise(({ id }) => usersService.getUser(id))

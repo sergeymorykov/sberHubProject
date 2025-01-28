@@ -7,7 +7,7 @@ interface DislikeProps {
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
-const Dislike = ({onClick}: DislikeProps): React.ReactElement => {
+const Dislike = ({ onClick }: DislikeProps): React.ReactElement => {
   const lottieRef = useRef(null);
 
   const handleMouseEnter = () => {
@@ -19,7 +19,13 @@ const Dislike = ({onClick}: DislikeProps): React.ReactElement => {
 
   return (
     <ButtonStyled onClick={onClick} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-      <Lottie lottieRef={lottieRef} animationData={animationDislike} loop={false} autoplay={false} onComplete={handleMouseLeave} />
+      <Lottie
+        lottieRef={lottieRef}
+        animationData={animationDislike}
+        loop={false}
+        autoplay={false}
+        onComplete={handleMouseLeave}
+      />
     </ButtonStyled>
   );
 };

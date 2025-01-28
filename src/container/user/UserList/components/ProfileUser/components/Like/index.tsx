@@ -7,7 +7,7 @@ interface LikeProps {
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
-const Like = ({onClick}: LikeProps): React.ReactElement => {
+const Like = ({ onClick }: LikeProps): React.ReactElement => {
   const lottieRef = useRef(null);
 
   const handleMouseEnter = () => {
@@ -19,7 +19,13 @@ const Like = ({onClick}: LikeProps): React.ReactElement => {
 
   return (
     <ButtonStyled onClick={onClick} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-      <Lottie lottieRef={lottieRef} animationData={animationLike} loop={false} autoplay={false} onComplete={handleMouseLeave} />
+      <Lottie
+        lottieRef={lottieRef}
+        animationData={animationLike}
+        loop={false}
+        autoplay={false}
+        onComplete={handleMouseLeave}
+      />
     </ButtonStyled>
   );
 };
