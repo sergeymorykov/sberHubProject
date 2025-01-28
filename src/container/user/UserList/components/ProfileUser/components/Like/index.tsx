@@ -3,7 +3,11 @@ import Lottie from 'lottie-react';
 import animationLike from './data/animationLike.json';
 import { ButtonStyled } from './index.style';
 
-const Like = (): React.ReactElement => {
+interface LikeProps {
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
+}
+
+const Like = ({onClick}: LikeProps): React.ReactElement => {
   const lottieRef = useRef(null);
 
   const handleMouseEnter = () => {
@@ -14,8 +18,8 @@ const Like = (): React.ReactElement => {
   };
 
   return (
-    <ButtonStyled onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-      <Lottie lottieRef={lottieRef} animationData={animationLike} loop={false} autoplay={false} />
+    <ButtonStyled onClick={onClick} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+      <Lottie lottieRef={lottieRef} animationData={animationLike} loop={false} autoplay={false} onComplete={handleMouseLeave} />
     </ButtonStyled>
   );
 };

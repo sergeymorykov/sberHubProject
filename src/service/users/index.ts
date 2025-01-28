@@ -8,6 +8,11 @@ class UsersService {
     return res.data;
   }
 
+  async getPartialUsers(pageSize: number, page: number): Promise<userItem[]> {
+    const res = await network.get<GetUsersResponse>(`/users/${pageSize}/${page}`);
+    return res.data;
+  }
+
   async getUser(id: number | string): Promise<userItem> {
     const res = await network.get<GetUserResponse>(`/users/${id}`);
     return res.data;
@@ -20,6 +25,16 @@ class UsersService {
 
   async createUser(data: userItem) {
     const res = await network.post<GetUserResponse>(`/users`, data);
+    return res.data;
+  }
+
+  async like(from_id: number | string, to_id: number | string) {
+    const res = await network.post<string | void>(`/users/${from_id}/like/${to_id}`);
+    return res.data;
+  }
+
+  async dislike(from_id: number | string, to_id: number | string) {
+    const res = await network.post<string | void>(`/users/${from_id}/dislike/${to_id}`);
     return res.data;
   }
 }

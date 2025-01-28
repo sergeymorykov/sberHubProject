@@ -30,6 +30,9 @@ export const api = createApi({
     getUsers: builder.query<GetUsersResponse, undefined>({
       queryFn: createQueryFromPromise(() => usersService.getUsers())
     }),
+    getPartialUsers: builder.query<GetUsersResponse, {pageSize: number, page: number}>({
+      queryFn: createQueryFromPromise(({pageSize, page}) => usersService.getPartialUsers(pageSize, page))
+    }),
     getUser: builder.query<GetUserResponse, { id: number | string }>({
       queryFn: createQueryFromPromise(({ id }) => usersService.getUser(id))
     }),
@@ -38,6 +41,12 @@ export const api = createApi({
     }),
     createUser: builder.mutation<GetUserResponse, { data: userItem }>({
       queryFn: createQueryFromPromise(({ data }) => usersService.createUser(data))
+    }),
+    like: builder.mutation<string | void, { from_id: number | string; to_id: number | string }>({
+      queryFn: createQueryFromPromise(({ from_id, to_id }) => usersService.like(from_id, to_id))
+    }),
+    dislike: builder.mutation<string | void, { from_id: number | string; to_id: number | string }>({
+      queryFn: createQueryFromPromise(({ from_id, to_id }) => usersService.dislike(from_id, to_id))
     }),
     getEvents: builder.query<GetEventsResponse, undefined>({
       queryFn: createQueryFromPromise(() => eventsService.getEvents())
@@ -48,8 +57,11 @@ export const api = createApi({
 export const {
   useGetInterestsQuery,
   useGetUsersQuery,
+  useGetPartialUsersQuery,
   useGetUserQuery,
   useCreateUserMutation,
   useUpdateUserMutation,
+  useLikeMutation,
+  useDislikeMutation,
   useGetEventsQuery
 } = api;

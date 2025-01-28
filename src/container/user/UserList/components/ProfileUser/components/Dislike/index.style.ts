@@ -7,11 +7,13 @@ export const ButtonStyled = styled(Button)`
   height: 64px;
   background-color: #f06960;
   padding: 0;
-  & :hover {
-    width: 64px;
-    height: 64px;
-    background-color: ${darken('#f06960', 0.2)};
-    padding: 0;
-    border-radius: 4px;
+  @media (hover: hover) {
+    & :hover {
+      width: 64px;
+      height: 64px;
+      background-color: ${darken('#f06960', 0.2)};
+      padding: 0;
+      border-radius: 4px;
+    }
   }
 `;
