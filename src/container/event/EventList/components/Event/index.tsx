@@ -14,15 +14,14 @@ const Event = ({ id, name, description, date }: EventProps): React.ReactElement 
   const user_id = JSON.parse(localStorage.getItem('user') || '{}')?.id;
   const handleEvent = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if(!isParticipating) {
-      let result = await participateEvent({ user_id, id });
-      if(!result.error) {
+    if (!isParticipating) {
+      const result = await participateEvent({ user_id, id });
+      if (!result.error) {
         setIsParticipating(true);
-      }     
-    }
-    else {
-      let result = await refuseEvent({ user_id, id });
-      if(!result.error) {
+      }
+    } else {
+      const result = await refuseEvent({ user_id, id });
+      if (!result.error) {
         setIsParticipating(false);
       }
     }
@@ -35,13 +34,13 @@ const Event = ({ id, name, description, date }: EventProps): React.ReactElement 
       <EventDate date={date} />
       {!isParticipating ? (
         <Button type="submit" fullWidth variant="contained">
-        Участвовать
+          Участвовать
         </Button>
       ) : (
         <Button type="submit" fullWidth variant="contained">
-        Отказаться
+          Отказаться
         </Button>
-      )}      
+      )}
     </EventStyled>
   );
 };

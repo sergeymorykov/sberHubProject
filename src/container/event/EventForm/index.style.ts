@@ -17,4 +17,4 @@ export const BoxIconButtonStyled = styled(Box)`
   width: 100%;
   display: flex;
   justify-content: flex-start;
-`
+`;

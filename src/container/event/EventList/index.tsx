@@ -10,11 +10,12 @@ import { useNavigate } from 'react-router-dom';
 
 const EventList = (): React.ReactElement => {
   const { data, isLoading, error } = useGetEventsQuery(undefined);
-  const navigate = useNavigate();
 
+  const navigate = useNavigate();
   const handleClick = () => {
     navigate(getNavigationsValue('sberhubproject.eventForm'));
-  }
+  };
+
   return (
     <EventListStyled>
       <Title>Список событий</Title>
@@ -24,7 +25,7 @@ const EventList = (): React.ReactElement => {
       {data?.map((item) => {
         return (
           <div key={item.id}>
-            <Event id={item.id}  name={item.name} description={item.description} date={item.date} />
+            <Event id={item.id} name={item.name} description={item.description} date={item.date} />
           </div>
         );
       })}

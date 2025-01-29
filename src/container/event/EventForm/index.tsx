@@ -24,32 +24,28 @@ const EventForm = (): React.ReactElement => {
   const navigate = useNavigate();
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-      event.preventDefault();
-      const formData = new FormData(event.currentTarget);
+    event.preventDefault();
+    const formData = new FormData(event.currentTarget);
 
-      const getTrimmedValue = (key: string): string => {
-        const value = formData.get(key);
-        return typeof value === 'string' ? value.trim() : '';
-      };
-      const eventInfo = {
-        name: getTrimmedValue('name'),
-        description: getTrimmedValue('description'),
-        date: Dayjs(date).format()
-      };
-      try {
-        let result = await createEvent({ data: eventInfo });
-        
-        if(!result.error) {
-          localStorage.setItem(
-            'event',
-            JSON.stringify(eventInfo)
-          );
-          navigate(-1);
-        }      
-      } catch (err) {
-        console.error('Error:', err);
-        setError('Не удалось сохранить данные. Попробуйте снова.');
+    const getTrimmedValue = (key: string): string => {
+      const value = formData.get(key);
+      return typeof value === 'string' ? value.trim() : '';
+    };
+    const eventInfo = {
+      name: getTrimmedValue('name'),
+      description: getTrimmedValue('description'),
+      date: Dayjs(date).format()
+    };
+    try {
+      const result = await createEvent({ data: eventInfo });
+      if (!result.error) {
+        localStorage.setItem('event', JSON.stringify(eventInfo));
+        navigate(-1);
       }
+    } catch (err) {
+      console.error('Error:', err);
+      setError('Не удалось сохранить данные. Попробуйте снова.');
+    }
   };
 
   return (

@@ -12,7 +12,7 @@ class EventsService {
     return res.data;
   }
 
-  async createEvent(data: EventItem ) {
+  async createEvent(data: EventItem) {
     const res = await network.post<string | void>('/events', data);
     return res.data;
   }
@@ -21,7 +21,7 @@ class EventsService {
     const res = await network.post<string | void>(`/events/${user_id}/participate/${id}`);
     return res.data;
   }
-  
+
   async refuseEvent(user_id: string | number, id: number) {
     const res = await network.post<string | void>(`/events/${user_id}/refuse/${id}`);
     return res.data;
@@ -31,7 +31,6 @@ class EventsService {
     const res = await network.delete<string | void>(`/events/${id}`);
     return res.data;
   }
-
 }
 
 export const eventsService = new EventsService();
