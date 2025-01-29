@@ -1,7 +1,7 @@
 import React from 'react';
-import UserForm from '../UserForm';
-import useTelegram from '../../../hooks/useTelegram';
-import { useGetUserQuery } from '../../../service/api';
+import UserForm from '../components/UserForm';
+import useTelegram from '../../hooks/useTelegram';
+import { useGetUserQuery } from '../../service/api';
 
 const EditUser = (): React.ReactElement => {
   const { user_id } = useTelegram();

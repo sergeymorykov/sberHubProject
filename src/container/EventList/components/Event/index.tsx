@@ -5,7 +5,7 @@ import EventDate from './components/EventDate';
 import Button from '@mui/material/Button';
 import { EventStyled } from './index.style';
 import { EventProps } from './types';
-import { useParticipateEventMutation, useRefuseEventMutation } from '../../../../../service/api';
+import { useParticipateEventMutation, useRefuseEventMutation } from '../../../../service/api';
 
 const Event = ({ id, name, description, date }: EventProps): React.ReactElement => {
   const [participateEvent] = useParticipateEventMutation();

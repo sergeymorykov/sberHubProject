@@ -1,10 +1,10 @@
 import React from 'react';
-import { useGetEventsQuery } from '../../../service/api';
+import { useGetEventsQuery } from '../../service/api';
 import Event from './components/Event';
 import { EventListStyled } from './index.style';
 import Title from './components/Title';
 import Button from './components/Button';
-import Loading from '../../components/Loading';
+import Loading from '../components/Loading';
 import { getNavigationsValue } from '@brojs/cli';
 import { useNavigate } from 'react-router-dom';
 
