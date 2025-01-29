@@ -1,7 +1,7 @@
 import React, { useState, useEffect, ReactNode } from 'react';
 import { Outlet } from 'react-router-dom';
-import Header from './Header';
-import Body from './Body';
+import Header from './header';
+import Body from './body';
 import useTelegram from '../../../../hooks/useTelegram';
 import ErrorPage from '../../../ErrorPage';
 import { ErrorPageCode } from '../../../ErrorPage/types';
