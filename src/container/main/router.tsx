@@ -1,14 +1,14 @@
 import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
-import SingUpPage from '../user/SignUp';
-import EditUser from '../user/EditUser';
+import SingUpPage from '../SignUp';
+import EditUser from '../EditUser';
 import ErrorPage from '../ErrorPage';
-import UserList from '../user/UserList';
+import UserList from '../UserList';
 import { ErrorPageCode } from '../ErrorPage/types';
 import { getNavigationsValue } from '@brojs/cli';
 import Layout from './components/layout';
-import EventList from '../event/EventList';
-import EventForm from '../event/EventForm';
+import EventList from '../EventList';
+import EventForm from '../EventForm';
 
 export const router = createBrowserRouter([
   {
