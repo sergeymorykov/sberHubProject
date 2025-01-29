@@ -1,5 +1,5 @@
 import React from 'react';
-import { InterestsItem } from '../../../../../../../service/interests/types';
+import { InterestsItem } from '../../../../../../service/interests/types';
 import { BoxStyled } from './index.style';
 import { Typography } from '@mui/material';
 

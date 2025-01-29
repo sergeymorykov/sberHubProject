@@ -5,7 +5,7 @@ import Interests from './components/Interests';
 import About from './components/About';
 import Like from './components/Like';
 import Dislike from './components/Dislike';
-import { useGetPartialUsersQuery, useLikeMutation, useDislikeMutation } from '../../../../../service/api';
+import { useGetPartialUsersQuery, useLikeMutation, useDislikeMutation } from '../../../../service/api';
 
 const ProfileUser = (): React.ReactElement => {
   const user_id = JSON.parse(localStorage.getItem('user') || '{}')?.id;
