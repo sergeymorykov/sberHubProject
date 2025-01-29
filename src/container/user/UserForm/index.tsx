@@ -36,12 +36,19 @@ const UserForm = ({ user = null }: { user?: userItem }): React.ReactElement => {
     };
 
     try {
+      let result;
       if (user) {
-        await updateUser({ id: user_id, data: userInfo });
+        result = await updateUser({ id: user_id, data: userInfo });
       } else {
-        await createUser({ data: userInfo });
+        result = await createUser({ data: userInfo });
       }
-      onClose();
+      if(!result.error) {
+        localStorage.setItem(
+          'user',
+          JSON.stringify(userInfo)
+        );
+        onClose();
+      }      
     } catch (err) {
       console.error('Error:', err);
       setError('Не удалось сохранить данные. Попробуйте снова.');

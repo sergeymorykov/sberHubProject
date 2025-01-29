@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import Grid2 from '@mui/material/Grid2';
+import Box from '@mui/material/Box';
 
 export const GridChildrenStyle = styled(Grid2)`
   display: flex;
@@ -9,5 +10,11 @@ export const GridChildrenStyle = styled(Grid2)`
 `;
 
 export const EventFormStyled = styled.form`
-  margin-top: 24px;
+  margin-top: 8px;
 `;
+
+export const BoxIconButtonStyled = styled(Box)`
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+`

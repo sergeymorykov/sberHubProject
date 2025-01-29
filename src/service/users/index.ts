@@ -19,22 +19,22 @@ class UsersService {
   }
 
   async updateUser(id: number | string, data: userItem) {
-    const res = await network.put<GetUserResponse>(`/users/${id}`, data);
+    const res = await network.put<string | void>(`/users/${id}`, data);
     return res.data;
   }
 
   async createUser(data: userItem) {
-    const res = await network.post<GetUserResponse>(`/users`, data);
+    const res = await network.post<string | void>(`/users`, data);
     return res.data;
   }
 
   async like(from_id: number | string, to_id: number | string) {
-    const res = await network.post<string | void>(`/users/${from_id}/like/${to_id}`);
+    const res = await network.post<void>(`/users/${from_id}/like/${to_id}`);
     return res.data;
   }
 
   async dislike(from_id: number | string, to_id: number | string) {
-    const res = await network.post<string | void>(`/users/${from_id}/dislike/${to_id}`);
+    const res = await network.post<void>(`/users/${from_id}/dislike/${to_id}`);
     return res.data;
   }
 }
