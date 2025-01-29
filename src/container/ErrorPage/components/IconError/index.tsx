@@ -1,5 +1,5 @@
 import React from 'react';
-import { ErrorPageCode } from '../types';
+import { ErrorPageCode } from '../../types';
 import { Error404 } from './Error404';
 import { Error500 } from './Error500';
 
