@@ -65,7 +65,7 @@ const UserForm = ({ user = null }: { user?: userItem }): React.ReactElement => {
               name="lastname"
               autoComplete="family-name"
               fullWidth
-              defaultValue={user?.username.split(' ')[1]}
+              defaultValue={user?.username?.split(' ')[1]}
             />
           </GridChildrenStyle>
           <GridChildrenStyle size={6}>
@@ -76,7 +76,7 @@ const UserForm = ({ user = null }: { user?: userItem }): React.ReactElement => {
               name="firstname"
               autoComplete="given-name"
               fullWidth
-              defaultValue={user?.username.split(' ')[0]}
+              defaultValue={user?.username?.split(' ')[0]}
             />
           </GridChildrenStyle>
           <GridChildrenStyle size={12}>
