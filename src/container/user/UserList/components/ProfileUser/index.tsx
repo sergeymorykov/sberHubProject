@@ -8,7 +8,7 @@ import Dislike from './components/Dislike';
 import { useGetPartialUsersQuery, useLikeMutation, useDislikeMutation } from '../../../../../service/api';
 
 const ProfileUser = (): React.ReactElement => {
-  const user_id = JSON.parse(localStorage.getItem('user') || '')?.id;
+  const user_id = JSON.parse(localStorage.getItem('user') || '{}')?.id;
   const [page, SetPage] = useState(Number(localStorage.getItem('page')) || 1);
   const { user, isLoading, error } = useGetPartialUsersQuery(
     { pageSize: 1, page: page },

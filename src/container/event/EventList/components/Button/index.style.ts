@@ -7,5 +7,5 @@ export const ButtonStyled = styled(Button)`
 
 export const ButtonContainerStyled = styled.div`
   display: flex;
-  justify-content: right;
+  justify-content: flex-end;
 `;

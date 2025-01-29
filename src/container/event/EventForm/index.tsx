@@ -1,8 +1,7 @@
-import React from 'react';
-import { EventFormStyled } from './index.style';
+import React, { useState } from 'react';
 import Title from './components/Title';
 import Grid2 from '@mui/material/Grid2';
-import { GridChildrenStyle } from './index.style';
+import { EventFormStyled, GridChildrenStyle, BoxIconButtonStyled } from './index.style';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { MobileDatePicker } from '@mui/x-date-pickers/MobileDatePicker';
@@ -11,50 +10,90 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { ruRU } from '@mui/x-date-pickers/locales';
 import 'dayjs/locale/ru';
+import { useCreateEventMutation } from '../../../service/api';
+import { useNavigate } from 'react-router-dom';
+import IconButton from '@mui/material/IconButton';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 Dayjs.locale('ru');
 
 const EventForm = (): React.ReactElement => {
-  const [value, setValue] = React.useState(Dayjs());
+  const [date, setDate] = React.useState(Dayjs());
+  const [createEvent] = useCreateEventMutation();
+  const [error, setError] = useState<string | null>(null);
+  const navigate = useNavigate();
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const formData = new FormData(event.currentTarget);
+
+    const getTrimmedValue = (key: string): string => {
+      const value = formData.get(key);
+      return typeof value === 'string' ? value.trim() : '';
+    };
+    const eventInfo = {
+      name: getTrimmedValue('name'),
+      description: getTrimmedValue('description'),
+      date: Dayjs(date).format()
+    };
+    try {
+      const result = await createEvent({ data: eventInfo });
+      if (!result.error) {
+        localStorage.setItem('event', JSON.stringify(eventInfo));
+        navigate(-1);
+      }
+    } catch (err) {
+      console.error('Error:', err);
+      setError('Не удалось сохранить данные. Попробуйте снова.');
+    }
+  };
 
   return (
-    <EventFormStyled>
-      <Title>Создание события</Title>
-      <Grid2 container>
-        <GridChildrenStyle size={12}>
-          <TextField required id="name" label="Название события" name="name" />
-        </GridChildrenStyle>
-        <GridChildrenStyle size={12}>
-          <TextField
-            id="description"
-            label="Описание"
-            name="description"
-            placeholder="Напишите описание события..."
-            multiline
-            rows={3}
-          />
-        </GridChildrenStyle>
-        <GridChildrenStyle size={12}>
-          <LocalizationProvider
-            localeText={ruRU.components.MuiLocalizationProvider.defaultProps.localeText}
-            dateAdapter={AdapterDayjs}
-            adapterLocale="ru"
-          >
-            <MobileDatePicker
-              localeText={{ clearButtonLabel: 'Vider' }}
-              value={value}
-              format="DD MMMM YYYY"
-              onChange={(newValue) => setValue(newValue)}
+    <>
+      <BoxIconButtonStyled>
+        <IconButton aria-label="Home" onClick={() => navigate(-1)}>
+          <ArrowBackIcon />
+        </IconButton>
+      </BoxIconButtonStyled>
+      <EventFormStyled onSubmit={handleSubmit}>
+        <Title>Создание события</Title>
+        <Grid2 container>
+          <GridChildrenStyle size={12}>
+            <TextField required id="name" label="Название события" name="name" />
+          </GridChildrenStyle>
+          <GridChildrenStyle size={12}>
+            <TextField
+              id="description"
+              label="Описание"
+              name="description"
+              placeholder="Напишите описание события..."
+              multiline
+              rows={3}
             />
-          </LocalizationProvider>
-        </GridChildrenStyle>
-        <GridChildrenStyle size={12}>
-          <Button type="submit" fullWidth variant="contained">
-            Добавить событие
-          </Button>
-        </GridChildrenStyle>
-      </Grid2>
-    </EventFormStyled>
+          </GridChildrenStyle>
+          <GridChildrenStyle size={12}>
+            <LocalizationProvider
+              localeText={ruRU.components.MuiLocalizationProvider.defaultProps.localeText}
+              dateAdapter={AdapterDayjs}
+              adapterLocale="ru"
+            >
+              <MobileDatePicker
+                localeText={{ clearButtonLabel: 'Vider' }}
+                value={date}
+                format="DD MMMM YYYY"
+                onChange={(newValue) => setDate(newValue)}
+              />
+            </LocalizationProvider>
+          </GridChildrenStyle>
+          <GridChildrenStyle size={12}>
+            <Button type="submit" fullWidth variant="contained">
+              Добавить событие
+            </Button>
+          </GridChildrenStyle>
+          {error && <GridChildrenStyle size={12}>Произошла ошибка</GridChildrenStyle>}
+        </Grid2>
+      </EventFormStyled>
+    </>
   );
 };
 

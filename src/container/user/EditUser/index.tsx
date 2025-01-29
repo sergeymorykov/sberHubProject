@@ -7,11 +7,12 @@ const EditUser = (): React.ReactElement => {
   const { user_id } = useTelegram();
 
   const { data, isLoading, error } = useGetUserQuery({ id: user_id });
+  const user = JSON.parse(localStorage.getItem('user') || '{}');
   return (
     <>
       {isLoading && <div>Loading...</div>}
       {error && <div>Произошла ошибка</div>}
-      {data && <UserForm user={data} />}
+      {data && <UserForm user={user || data} />}
     </>
   );
 };

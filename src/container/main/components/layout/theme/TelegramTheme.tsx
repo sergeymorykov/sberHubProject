@@ -146,6 +146,14 @@ export const telegramTheme = (theme) =>
             color: 'var(--tg-theme-button-color)'
           }
         }
+      },
+      MuiIconButton: {
+        styleOverrides: {
+          root: {
+            '--IconButton-hoverBg': 'rgb(from var(--tg-theme-text-color) r g b / 20%)',
+            color: 'var(--tg-theme-text-color)'
+          }
+        }
       }
     }
   });

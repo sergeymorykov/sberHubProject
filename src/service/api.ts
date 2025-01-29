@@ -4,7 +4,7 @@ import { GetInterestsResponse } from './interests/types';
 import { interestsService } from './interests';
 import { userItem, GetUserResponse, GetUsersResponse } from './users/types';
 import { usersService } from './users';
-import { GetEventsResponse } from './events/types';
+import { EventItem, GetEventsResponse } from './events/types';
 import { eventsService } from './events';
 
 const createQueryFromPromise =
@@ -36,10 +36,10 @@ export const api = createApi({
     getUser: builder.query<GetUserResponse, { id: number | string }>({
       queryFn: createQueryFromPromise(({ id }) => usersService.getUser(id))
     }),
-    updateUser: builder.mutation<GetUserResponse, { id: number | string; data: userItem }>({
+    updateUser: builder.mutation<string | void, { id: number | string; data: userItem }>({
       queryFn: createQueryFromPromise(({ id, data }) => usersService.updateUser(id, data))
     }),
-    createUser: builder.mutation<GetUserResponse, { data: userItem }>({
+    createUser: builder.mutation<string | void, { data: userItem }>({
       queryFn: createQueryFromPromise(({ data }) => usersService.createUser(data))
     }),
     like: builder.mutation<string | void, { from_id: number | string; to_id: number | string }>({
@@ -50,6 +50,18 @@ export const api = createApi({
     }),
     getEvents: builder.query<GetEventsResponse, undefined>({
       queryFn: createQueryFromPromise(() => eventsService.getEvents())
+    }),
+    createEvent: builder.mutation<string | void, { data: EventItem }>({
+      queryFn: createQueryFromPromise(({ data }) => eventsService.createEvent(data))
+    }),
+    deleteEvent: builder.mutation<string | void, { id: number }>({
+      queryFn: createQueryFromPromise(({ id }) => eventsService.deleteEvent(id))
+    }),
+    participateEvent: builder.mutation<string | void, { user_id: string | number; id: number }>({
+      queryFn: createQueryFromPromise(({ user_id, id }) => eventsService.participateEvent(user_id, id))
+    }),
+    refuseEvent: builder.mutation<string | void, { user_id: string | number; id: number }>({
+      queryFn: createQueryFromPromise(({ user_id, id }) => eventsService.refuseEvent(user_id, id))
     })
   })
 });
@@ -63,5 +75,9 @@ export const {
   useUpdateUserMutation,
   useLikeMutation,
   useDislikeMutation,
-  useGetEventsQuery
+  useGetEventsQuery,
+  useCreateEventMutation,
+  useDeleteEventMutation,
+  useParticipateEventMutation,
+  useRefuseEventMutation
 } = api;

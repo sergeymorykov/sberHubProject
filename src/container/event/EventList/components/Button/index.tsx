@@ -2,10 +2,10 @@ import * as React from 'react';
 import { ButtonContainerStyled, ButtonStyled } from './index.style';
 import { ButtonProps } from './types';
 
-const Button = ({ children }: ButtonProps): React.ReactElement => {
+const Button = ({ children, onClick }: ButtonProps): React.ReactElement => {
   return (
     <ButtonContainerStyled>
-      <ButtonStyled type="submit" variant="contained">
+      <ButtonStyled onClick={onClick} type="submit" variant="contained">
         {children}
       </ButtonStyled>
     </ButtonContainerStyled>

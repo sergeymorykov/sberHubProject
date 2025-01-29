@@ -40,7 +40,7 @@ router.post('/:to_id/:action/:from_id', (req, res) => {
 });
 
 router.put('/:id', (req, res) => {
-  res.status(200).send(req);
+  res.status(204).send();
 });
 
 router.delete('/:id', (req, res) => {
