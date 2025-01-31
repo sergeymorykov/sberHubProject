@@ -1,5 +1,5 @@
-import React from 'react';
-import { useGetEventsQuery } from '../../service/api';
+import React, { useState, useEffect, useRef } from 'react';
+import { useGetPartialEventsQuery } from '../../service/api';
 import Event from './components/Event';
 import { EventListStyled } from './index.style';
 import Title from './components/Title';
@@ -9,7 +9,33 @@ import { getNavigationsValue } from '@brojs/cli';
 import { useNavigate } from 'react-router-dom';
 
 const EventList = (): React.ReactElement => {
-  const { data, isLoading, error } = useGetEventsQuery(undefined);
+  const [page, setPage] = useState(1);
+  const pageRef = useRef(page);
+  const { data, isFetching } = useGetPartialEventsQuery({ pageSize: 5, page });
+  const events = data ?? [];
+
+  useEffect(() => {
+    pageRef.current = page;
+  }, [page]);
+
+  useEffect(() => {
+    const onScroll = () => {
+      const scrolledToBottom = window.innerHeight + window.scrollY >= document.body.offsetHeight - 100;
+
+      if (scrolledToBottom && !isFetching) {
+        setPage((prevPage) => {
+          const nextPage = prevPage + 1;
+          pageRef.current = nextPage;
+          return nextPage;
+        });
+      }
+    };
+
+    window.addEventListener('scroll', onScroll);
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+    };
+  }, [isFetching]);
 
   const navigate = useNavigate();
   const handleClick = () => {
@@ -20,15 +46,14 @@ const EventList = (): React.ReactElement => {
     <EventListStyled>
       <Title>Список событий</Title>
       <Button onClick={handleClick}>Добавить событие</Button>
-      {isLoading && <Loading />}
-      {error && <div>Произошла ошибка</div>}
-      {data?.map((item) => {
+      {events.map((item) => {
         return (
           <div key={item.id}>
             <Event id={item.id} name={item.name} description={item.description} date={item.date} />
           </div>
         );
       })}
+      {isFetching && <Loading />}
     </EventListStyled>
   );
 };

@@ -2,6 +2,7 @@ import React from 'react';
 import UserForm from '../components/UserForm';
 import useTelegram from '../../hooks/useTelegram';
 import { useGetUserQuery } from '../../service/api';
+import Loading from '../components/Loading';
 
 const EditUser = (): React.ReactElement => {
   const { user_id } = useTelegram();
@@ -10,7 +11,7 @@ const EditUser = (): React.ReactElement => {
   const user = JSON.parse(localStorage.getItem('user') || '{}');
   return (
     <>
-      {isLoading && <div>Loading...</div>}
+      {isLoading && <Loading />}
       {error && <div>Произошла ошибка</div>}
       {data && <UserForm user={user || data} />}
     </>

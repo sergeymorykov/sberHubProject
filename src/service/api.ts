@@ -51,6 +51,18 @@ export const api = createApi({
     getEvents: builder.query<GetEventsResponse, undefined>({
       queryFn: createQueryFromPromise(() => eventsService.getEvents())
     }),
+    getPartialEvents: builder.query<GetEventsResponse, { pageSize: number; page: number }>({
+      queryFn: createQueryFromPromise(({ pageSize, page }) => eventsService.getPartialEvents(pageSize, page)),
+      serializeQueryArgs: ({ endpointName }) => {
+        return endpointName;
+      },
+      merge: (currentCache, newItems) => {
+        currentCache.push(...newItems);
+      },
+      forceRefetch({ currentArg, previousArg }) {
+        return currentArg !== previousArg;
+      }
+    }),
     createEvent: builder.mutation<string | void, { data: EventItem }>({
       queryFn: createQueryFromPromise(({ data }) => eventsService.createEvent(data))
     }),
@@ -76,6 +88,7 @@ export const {
   useLikeMutation,
   useDislikeMutation,
   useGetEventsQuery,
+  useGetPartialEventsQuery,
   useCreateEventMutation,
   useDeleteEventMutation,
   useParticipateEventMutation,

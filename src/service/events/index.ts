@@ -7,8 +7,8 @@ class EventsService {
     return res.data;
   }
 
-  async getPartialUsers(pageSize: number, page: number): Promise<EventItem[]> {
-    const res = await network.get<GetEventsResponse>(`/users/${pageSize}/${page}`);
+  async getPartialEvents(pageSize: number, page: number): Promise<EventItem[]> {
+    const res = await network.get<GetEventsResponse>(`/events/${pageSize}/${page}`);
     return res.data;
   }
 
