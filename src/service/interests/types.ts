@@ -1,6 +1,1 @@
-export interface InterestsItem {
-  value: string;
-  label: string;
-}
-
-export type GetInterestsResponse = Array<InterestsItem>;
+export type GetInterestsResponse = Array<string>;

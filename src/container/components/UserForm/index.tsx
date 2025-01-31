@@ -25,14 +25,16 @@ const UserForm = ({ user = null }: { user?: userItem }): React.ReactElement => {
       const value = formData.get(key);
       return typeof value === 'string' ? value.trim() : '';
     };
+    const interestList: string[] = [];
+    document.querySelectorAll('#interests span').forEach((span) => {
+      interestList.push(span.textContent);
+    });
     const userInfo = {
       id: user_id,
       username: `${formData.get('lastname')} ${formData.get('firstname')}`.trim(),
       about: getTrimmedValue('about'),
       photo: document.getElementById('photo')?.getAttribute('value') || null,
-      interests: formData
-        .getAll('interests')
-        .map((interest) => ({ value: interest.toString(), label: interest.toString() }))
+      interests: interestList
     };
 
     try {

@@ -14,7 +14,6 @@
     "license": "ISC",
     "description": "",
     "dependencies": {
-        "@ai-sdk/openai": "^1.1.5",
         "@brojs/cli": "^1.6.1",
         "@emotion/react": "^11.14.0",
         "@emotion/styled": "^11.14.0",
@@ -24,7 +23,6 @@
         "@mui/x-date-pickers": "^7.24.0",
         "@reduxjs/toolkit": "^2.5.0",
         "@twa-dev/sdk": "^8.0.1",
-        "ai": "^4.1.13",
         "dayjs": "^1.11.13",
         "express": "^4.19.2",
         "immutable": "^5.0.3",
@@ -34,9 +32,7 @@
         "react-dom": "^18.3.1",
         "react-lottie": "^1.2.10",
         "react-redux": "^9.2.0",
-        "react-router-dom": "^6.28.0",
-        "react-select": "^5.8.3",
-        "react-virtualized": "^9.22.6"
+        "react-router-dom": "^6.28.0"
     },
     "devDependencies": {
         "@eslint/js": "^9.14.0",

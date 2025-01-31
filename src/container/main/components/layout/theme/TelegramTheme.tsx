@@ -154,6 +154,43 @@ export const telegramTheme = (theme) =>
             color: 'var(--tg-theme-text-color)'
           }
         }
+      },
+      MuiChip: {
+        styleOverrides: {
+          root: {
+            backgroundColor: 'var(--tg-theme-button-color)',
+            color: 'var(--tg-theme-button-text-color)'
+          }
+        }
+      },
+      MuiSelect: {
+        styleOverrides: {
+          icon: {
+            color: 'var(--tg-theme-text-color)'
+          }
+        }
+      },
+      MuiOutlinedInput: {
+        styleOverrides: {
+          root: {
+            '& .MuiOutlinedInput-notchedOutline': {
+              borderColor: 'var(--tg-theme-text-color)'
+            },
+            '&:hover .MuiOutlinedInput-notchedOutline': {
+              borderColor: '#888888'
+            },
+            '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+              borderColor: '#0066ff'
+            }
+          }
+        }
+      },
+      MuiInputLabel: {
+        styleOverrides: {
+          root: {
+            color: 'var(--tg-theme-text-color)'
+          }
+        }
       }
     }
   });
