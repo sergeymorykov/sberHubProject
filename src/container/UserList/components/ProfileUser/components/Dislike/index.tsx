@@ -19,13 +19,7 @@ const Dislike = ({ onClick }: DislikeProps): React.ReactElement => {
 
   return (
     <ButtonStyled onClick={onClick} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-      <Lottie
-        lottieRef={lottieRef}
-        animationData={animationDislike}
-        loop={false}
-        autoplay={false}
-        onComplete={handleMouseLeave}
-      />
+      <Lottie lottieRef={lottieRef} animationData={animationDislike} loop={false} autoplay={false} />
     </ButtonStyled>
   );
 };

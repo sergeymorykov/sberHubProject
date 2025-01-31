@@ -6,6 +6,7 @@ import About from './components/About';
 import Like from './components/Like';
 import Dislike from './components/Dislike';
 import { useGetPartialUsersQuery, useLikeMutation, useDislikeMutation } from '../../../../service/api';
+import Compatibility from './components/Compatibility';
 
 const ProfileUser = (): React.ReactElement => {
   const user_id = JSON.parse(localStorage.getItem('user') || '{}')?.id;
@@ -50,6 +51,7 @@ const ProfileUser = (): React.ReactElement => {
           </Typography>
           <Interests interests={user?.interests} />
           <About>{user.about} </About>
+          <Compatibility />
           <Box sx={{ display: 'flex', gap: 2 }}>
             <Like onClick={handleLikeClick} />
             <Dislike onClick={handleDislikeClick} />
