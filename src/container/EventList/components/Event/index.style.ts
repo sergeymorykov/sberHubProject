@@ -22,11 +22,11 @@ export const EventStyled = styled.form`
 export const ButtonStyled = styled(Button)`
   :where(.MuiButton-root) {
     color: var(--tg-theme-button-text-color);
-    background-color: #FF5757 !important;
+    background-color: #ff5757 !important;
   }
   @media (hover: hover) {
-    :where(.MuiButton-root:hover) {    
-      background-color: #FD8484 !important;
+    :where(.MuiButton-root:hover) {
+      background-color: #fd8484 !important;
       box-shadow: none !important;
     }
   }

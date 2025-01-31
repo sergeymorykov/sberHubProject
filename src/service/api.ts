@@ -59,7 +59,7 @@ export const api = createApi({
       merge: (currentCache, newItems) => {
         currentCache.push(...newItems);
       },
-      forceRefetch({ currentArg, previousArg}) {
+      forceRefetch({ currentArg, previousArg }) {
         return currentArg !== previousArg;
       }
     }),

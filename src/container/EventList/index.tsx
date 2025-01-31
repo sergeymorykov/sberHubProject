@@ -15,13 +15,12 @@ const EventList = (): React.ReactElement => {
   const events = data ?? [];
 
   useEffect(() => {
-    pageRef.current = page; 
+    pageRef.current = page;
   }, [page]);
 
   useEffect(() => {
     const onScroll = () => {
-      const scrolledToBottom =
-        window.innerHeight + window.scrollY >= document.body.offsetHeight - 100;
+      const scrolledToBottom = window.innerHeight + window.scrollY >= document.body.offsetHeight - 100;
 
       if (scrolledToBottom && !isFetching) {
         setPage((prevPage) => {
@@ -32,12 +31,11 @@ const EventList = (): React.ReactElement => {
       }
     };
 
-    window.addEventListener("scroll", onScroll);
+    window.addEventListener('scroll', onScroll);
     return () => {
-      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener('scroll', onScroll);
     };
   }, [isFetching]);
-
 
   const navigate = useNavigate();
   const handleClick = () => {
