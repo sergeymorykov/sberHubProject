@@ -3,7 +3,7 @@ import Title from './components/Title';
 import Description from './components/Description';
 import EventDate from './components/EventDate';
 import Button from '@mui/material/Button';
-import { EventStyled } from './index.style';
+import { EventStyled, ButtonStyled } from './index.style';
 import { EventProps } from './types';
 import { useParticipateEventMutation, useRefuseEventMutation } from '../../../../service/api';
 
@@ -37,9 +37,9 @@ const Event = ({ id, name, description, date }: EventProps): React.ReactElement 
           Участвовать
         </Button>
       ) : (
-        <Button type="submit" fullWidth variant="contained">
+        <ButtonStyled type="submit" fullWidth variant="contained">
           Отказаться
-        </Button>
+        </ButtonStyled>
       )}
     </EventStyled>
   );
