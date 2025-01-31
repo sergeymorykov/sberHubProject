@@ -1,9 +1,10 @@
 import React from 'react';
 import { ButtonStyled } from './index.style';
-import { createOpenAI } from '@ai-sdk/openai';
-import { generateText } from 'ai';
+//import { createOpenAI } from '@ai-sdk/openai';
+//import { generateText } from 'ai';
 
 const Compatibility = (): React.ReactElement => {
+  /* todo разобраться в передаче apiKey на сервере
   const openai = createOpenAI({
     compatibility: 'strict',
     baseURL: 'https://api.openai.com/v1',
@@ -18,8 +19,8 @@ const Compatibility = (): React.ReactElement => {
 
     console.log(text);
   };
-
-  return <ButtonStyled onClick={handleClick}>Совместимость</ButtonStyled>;
+  */
+  return <ButtonStyled>Совместимость</ButtonStyled>;
 };
 
 export default Compatibility;
