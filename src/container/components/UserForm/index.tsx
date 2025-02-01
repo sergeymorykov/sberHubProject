@@ -5,7 +5,7 @@ import Photo from './Photo';
 import Interests from './Interests';
 import { FormStyled, GridChildrenStyle } from './index.style';
 import useTelegram from '../../../hooks/useTelegram';
-import { useUpdateUserMutation, useCreateUserMutation } from '../../../service/api';
+import { useUpdateUserMutation, useCreateUserMutation, useSendMessageBotMutation } from '../../../service/api';
 import { userItem } from '../../../service/users/types';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
@@ -16,6 +16,7 @@ const UserForm = ({ user = null }: { user?: userItem }): React.ReactElement => {
 
   const [updateUser] = useUpdateUserMutation();
   const [createUser] = useCreateUserMutation();
+  const [sendMessageBot] = useSendMessageBotMutation();
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -43,6 +44,10 @@ const UserForm = ({ user = null }: { user?: userItem }): React.ReactElement => {
         result = await updateUser({ id: user_id, data: userInfo });
       } else {
         result = await createUser({ data: userInfo });
+        await sendMessageBot({
+          chat_id: user_id,
+          text: 'Вы успешно зарегистрировались в чате'
+        });
       }
       if (!result.error) {
         localStorage.setItem('user', JSON.stringify(userInfo));

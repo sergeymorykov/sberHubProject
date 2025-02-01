@@ -10,18 +10,21 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { ruRU } from '@mui/x-date-pickers/locales';
 import 'dayjs/locale/ru';
-import { useCreateEventMutation } from '../../service/api';
+import { useCreateEventMutation, useSendMessageBotMutation } from '../../service/api';
 import { useNavigate } from 'react-router-dom';
 import IconButton from '@mui/material/IconButton';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import useTelegram from '../../hooks/useTelegram';
 
 Dayjs.locale('ru');
 
 const EventForm = (): React.ReactElement => {
   const [date, setDate] = React.useState(Dayjs());
   const [createEvent] = useCreateEventMutation();
+  const [sendMessageBot] = useSendMessageBotMutation();
   const [error, setError] = useState<string | null>(null);
   const navigate = useNavigate();
+  const { user_id } = useTelegram();
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -40,6 +43,10 @@ const EventForm = (): React.ReactElement => {
       const result = await createEvent({ data: eventInfo });
       if (!result.error) {
         localStorage.setItem('event', JSON.stringify(eventInfo));
+        await sendMessageBot({
+          chat_id: user_id,
+          text: `Вы успешно создали событие ${eventInfo.description}`
+        });
         navigate(-1);
       }
     } catch (err) {
