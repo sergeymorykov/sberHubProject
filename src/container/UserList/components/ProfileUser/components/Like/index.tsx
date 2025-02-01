@@ -19,7 +19,13 @@ const Like = ({ onClick }: LikeProps): React.ReactElement => {
 
   return (
     <ButtonStyled onClick={onClick} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-      <Lottie lottieRef={lottieRef} animationData={animationLike} loop={false} autoplay={false} />
+      <Lottie
+        lottieRef={lottieRef}
+        animationData={animationLike}
+        loop={false}
+        autoplay={false}
+        onComplete={handleMouseLeave}
+      />
     </ButtonStyled>
   );
 };

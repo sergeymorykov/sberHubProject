@@ -1,1 +1,1 @@
-export type GetInterestsResponse = Array<string>;
+export type GetInterestsResponse = string[];
