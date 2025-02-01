@@ -45,7 +45,7 @@ const EventForm = (): React.ReactElement => {
         localStorage.setItem('event', JSON.stringify(eventInfo));
         await sendMessageBot({
           chat_id: user_id,
-          text: `Вы успешно создали событие ${eventInfo.description}`
+          text: `Вы успешно создали событие ${eventInfo.name}`
         });
         navigate(-1);
       }
