@@ -12,7 +12,20 @@ const EventList = (): React.ReactElement => {
   const [page, setPage] = useState(1);
   const pageRef = useRef(page);
   const { data, isFetching } = useGetPartialEventsQuery({ pageSize: 5, page });
-  const events = data ?? [];
+  let events = data ?? [];
+
+  const localEvent = localStorage.getItem('event');
+  if (localEvent) {
+    try {
+      const parsedEvent = JSON.parse(localEvent);
+      if (parsedEvent) {
+        parsedEvent.id = 99;
+        events = [parsedEvent, ...events];
+      }
+    } catch (error) {
+      console.error('Ошибка парсинга события из localStorage:', error);
+    }
+  }
 
   useEffect(() => {
     pageRef.current = page;
