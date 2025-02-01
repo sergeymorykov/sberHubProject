@@ -24,13 +24,13 @@ const Event = ({ id, name, description, date }: EventProps): React.ReactElement 
   const handleEvent = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (!isParticipating) {
-      const result = await participateEvent({ user_id, id });
+      const result = await participateEvent({ user_id: user_id, id });
       if (!result.error) {
         setIsParticipating(true);
         localStorage.setItem(`event${id}`, '1');
       }
     } else {
-      const result = await refuseEvent({ user_id, id });
+      const result = await refuseEvent({ user_id: user_id, id });
       if (!result.error) {
         setIsParticipating(false);
         localStorage.setItem(`event${id}`, '0');

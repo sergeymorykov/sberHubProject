@@ -8,6 +8,7 @@ import { EventItem, GetEventsResponse } from './events/types';
 import { eventsService } from './events';
 import { GetGigachatResponse } from './gigachat/types';
 import { gigachatService } from './gigachat';
+import { telegramService } from './telegram';
 
 const createQueryFromPromise =
   <ARGS, RES>(fn: (...args: Array<ARGS>) => Promise<RES>) =>
@@ -79,6 +80,9 @@ export const api = createApi({
     }),
     getResponseGigachat: builder.query<GetGigachatResponse, { text: string }>({
       queryFn: createQueryFromPromise(({ text }) => gigachatService.GetResponseGigachat(text))
+    }),
+    sendMessageBot: builder.mutation<string | void, { chat_id: number | string; text: string }>({
+      queryFn: createQueryFromPromise(({ chat_id, text }) => telegramService.sendMessageBot({ chat_id, text }))
     })
   })
 });
@@ -98,5 +102,6 @@ export const {
   useDeleteEventMutation,
   useParticipateEventMutation,
   useRefuseEventMutation,
-  useGetResponseGigachatQuery
+  useGetResponseGigachatQuery,
+  useSendMessageBotMutation
 } = api;

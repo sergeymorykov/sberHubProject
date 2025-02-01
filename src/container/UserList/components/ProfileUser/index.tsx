@@ -1,14 +1,22 @@
 import React, { useState } from 'react';
-import { Avatar, Typography, Box, CircularProgress } from '@mui/material';
+import { Avatar, Typography, Box } from '@mui/material';
 import { Grid2Styled } from './index.styled';
 import Interests from './components/Interests';
 import About from './components/About';
 import Like from './components/Like';
 import Dislike from './components/Dislike';
-import { useGetPartialUsersQuery, useLikeMutation, useDislikeMutation } from '../../../../service/api';
+import {
+  useGetPartialUsersQuery,
+  useLikeMutation,
+  useDislikeMutation,
+  useSendMessageBotMutation
+} from '../../../../service/api';
 import Compatibility from './components/Compatibility';
+import Loading from '../../../components/Loading';
+import useTelegram from '../../../../hooks/useTelegram';
 
 const ProfileUser = (): React.ReactElement => {
+  const { tg } = useTelegram();
   const liker = JSON.parse(localStorage.getItem('user') || '{}');
   const [page, SetPage] = useState(Number(localStorage.getItem('page')) || 1);
   const { user, isLoading, error } = useGetPartialUsersQuery(
@@ -24,6 +32,7 @@ const ProfileUser = (): React.ReactElement => {
 
   const [like] = useLikeMutation();
   const [dislike] = useDislikeMutation();
+  const [sendMessageBot] = useSendMessageBotMutation();
   const handleActionClick = async (action: 'like' | 'dislike') => {
     const mutation = action === 'like' ? like : dislike;
     const result = await mutation({ from_id: liker?.id, to_id: user.id });
@@ -33,6 +42,12 @@ const ProfileUser = (): React.ReactElement => {
         localStorage.setItem('page', String(newPage));
         return newPage;
       });
+      if (action === 'like') {
+        await sendMessageBot({
+          chat_id: user.id,
+          text: `К вам проявил интерес пользователь @${tg?.initDataUnsafe?.user}`
+        });
+      }
     }
   };
 
@@ -41,7 +56,7 @@ const ProfileUser = (): React.ReactElement => {
 
   return (
     <>
-      {isLoading && <CircularProgress />}
+      {isLoading && <Loading />}
       {error && <div>Произошла ошибка</div>}
       {user && (
         <Grid2Styled>
