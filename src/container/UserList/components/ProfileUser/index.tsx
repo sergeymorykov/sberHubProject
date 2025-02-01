@@ -9,7 +9,7 @@ import { useGetPartialUsersQuery, useLikeMutation, useDislikeMutation } from '..
 import Compatibility from './components/Compatibility';
 
 const ProfileUser = (): React.ReactElement => {
-  const user_id = JSON.parse(localStorage.getItem('user') || '{}')?.id;
+  const liker = JSON.parse(localStorage.getItem('user') || '{}');
   const [page, SetPage] = useState(Number(localStorage.getItem('page')) || 1);
   const { user, isLoading, error } = useGetPartialUsersQuery(
     { pageSize: 1, page: page },
@@ -26,7 +26,7 @@ const ProfileUser = (): React.ReactElement => {
   const [dislike] = useDislikeMutation();
   const handleActionClick = async (action: 'like' | 'dislike') => {
     const mutation = action === 'like' ? like : dislike;
-    const result = await mutation({ from_id: user_id, to_id: user.id });
+    const result = await mutation({ from_id: liker?.id, to_id: user.id });
     if (!result.error) {
       SetPage((page) => {
         const newPage = page + 1;
@@ -51,7 +51,7 @@ const ProfileUser = (): React.ReactElement => {
           </Typography>
           <Interests interests={user?.interests} />
           <About>{user.about} </About>
-          <Compatibility />
+          <Compatibility infoUser1={liker?.interests?.join(', ')} infoUser2={user?.interests?.join(', ')} />
           <Box sx={{ display: 'flex', gap: 2 }}>
             <Like onClick={handleLikeClick} />
             <Dislike onClick={handleDislikeClick} />

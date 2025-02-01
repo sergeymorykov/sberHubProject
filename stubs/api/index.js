@@ -2,6 +2,7 @@ const router = require('express').Router();
 const interestsRouter = require('./interests');
 const usersRouter = require('./users');
 const eventsRouter = require('./events');
+const gigachatRouter = require('./gigachat');
 module.exports = router;
 
 const delay =
@@ -14,3 +15,4 @@ router.use(delay());
 router.use('/interests', interestsRouter);
 router.use('/users', usersRouter);
 router.use('/events', eventsRouter);
+router.use('/gigachat', gigachatRouter);

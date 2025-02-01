@@ -170,16 +170,16 @@ export const telegramTheme = (theme) =>
           }
         }
       },
-      MuiOutlinedInput: {
+      MuiInput: {
         styleOverrides: {
           root: {
-            '& .MuiOutlinedInput-notchedOutline': {
+            '& .MuiInput-notchedOutline': {
               borderColor: 'var(--tg-theme-text-color)'
             },
-            '&:hover .MuiOutlinedInput-notchedOutline': {
+            '&:hover .MuiInput-notchedOutline': {
               borderColor: '#888888'
             },
-            '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+            '&.Mui-focused .MuiInput-notchedOutline': {
               borderColor: '#0066ff'
             }
           }

@@ -1,12 +1,10 @@
-import { InterestsItem } from '../interests/types';
-
 export interface userItem {
   id: number;
   username: string;
-  photo: string | null;
-  about: string | null;
-  email?: string | null;
-  interests: Array<InterestsItem> | null;
+  photo: string;
+  about: string;
+  email?: string;
+  interests: string[];
 }
 
 export type GetUserResponse = userItem;

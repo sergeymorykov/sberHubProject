@@ -6,6 +6,8 @@ import { userItem, GetUserResponse, GetUsersResponse } from './users/types';
 import { usersService } from './users';
 import { EventItem, GetEventsResponse } from './events/types';
 import { eventsService } from './events';
+import { GetGigachatResponse } from './gigachat/types';
+import { gigachatService } from './gigachat';
 
 const createQueryFromPromise =
   <ARGS, RES>(fn: (...args: Array<ARGS>) => Promise<RES>) =>
@@ -74,6 +76,9 @@ export const api = createApi({
     }),
     refuseEvent: builder.mutation<string | void, { user_id: string | number; id: number }>({
       queryFn: createQueryFromPromise(({ user_id, id }) => eventsService.refuseEvent(user_id, id))
+    }),
+    getResponseGigachat: builder.query<GetGigachatResponse, { text: string }>({
+      queryFn: createQueryFromPromise(({ text }) => gigachatService.GetResponseGigachat(text))
     })
   })
 });
@@ -92,5 +97,6 @@ export const {
   useCreateEventMutation,
   useDeleteEventMutation,
   useParticipateEventMutation,
-  useRefuseEventMutation
+  useRefuseEventMutation,
+  useGetResponseGigachatQuery
 } = api;

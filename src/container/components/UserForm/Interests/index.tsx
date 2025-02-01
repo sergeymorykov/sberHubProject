@@ -4,7 +4,7 @@ import { useGetInterestsQuery } from '../../../../service/api';
 import { InterestsProps } from './types';
 import MenuItem from '@mui/material/MenuItem';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
-import OutlinedInput from '@mui/material/OutlinedInput';
+import Input from '@mui/material/Input';
 import Box from '@mui/material/Box';
 import Chip from '@mui/material/Chip';
 import InputLabel from '@mui/material/InputLabel';
@@ -45,7 +45,7 @@ const Interests = ({ id, name, defaultValues = [] }: InterestsProps): React.Reac
             fullWidth
             value={selectedInterests}
             onChange={handleChange}
-            input={<OutlinedInput />}
+            input={<Input />}
             renderValue={(selected) => {
               if (typeof selected === 'string') {
                 return <Chip key={selected} label={selected} />;
