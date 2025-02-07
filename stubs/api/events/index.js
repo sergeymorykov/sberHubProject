@@ -27,10 +27,12 @@ router.post('/:user_id/:action/:id', (req, res) => {
   const user_id = parseInt(req.params.user_id);
   const id = parseInt(req.params.id);
   const action = req.params.action;
+
   if (users_data.findIndex((item) => item.id === user_id) === -1 || data.findIndex((item) => item.id === id) === -1) {
     res.status(404).send();
     return;
   }
+
   if (action !== 'participate' && action !== 'refuse') {
     res.status(400).send({ error: 'Invalid action' });
     return;
