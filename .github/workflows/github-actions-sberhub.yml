@@ -24,4 +24,4 @@ jobs:
       - name: build project
         run: npm run build:prod
       - name: run EsLint
-        run: npm run eslint
+        run: npx eslint src stubs
