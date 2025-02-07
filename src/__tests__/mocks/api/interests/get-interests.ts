@@ -6,11 +6,7 @@ export const spyedGetInterests = jest.spyOn(interestsService, 'getInterests');
 
 export const mockGetInterests = (data?: GetInterestsResponse) => {
   spyedGetInterests.mockResolvedValueOnce(
-    data ?? [
-      "Стартапы, поиск команды и нетворкинг",
-      "Искусство, фотография и дизайн",
-      "Музыка"
-    ]
+    data ?? ['Стартапы, поиск команды и нетворкинг', 'Искусство, фотография и дизайн', 'Музыка']
   );
   return spyedGetInterests;
 };

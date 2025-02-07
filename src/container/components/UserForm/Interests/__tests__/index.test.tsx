@@ -5,7 +5,6 @@ import Interests from '../index';
 import { TestWrapper } from '../../../../../__tests__/test-wrapper';
 import { mockGetInterests, spyedGetInterests } from '../../../../../__tests__/mocks/api/interests/get-interests';
 
-
 describe('Interests', () => {
   test('renders', async () => {
     const mockedGetInterests = mockGetInterests();
@@ -24,9 +23,9 @@ describe('Interests', () => {
     render(<Interests id="interests" name="interests" defaultValues={[]} />, {
       wrapper: TestWrapper
     });
-  
+
     const select = await screen.findByRole('combobox');
-    
+
     fireEvent.mouseDown(select);
 
     expect(await screen.findByText('Стартапы, поиск команды и нетворкинг')).toBeInTheDocument();
@@ -41,7 +40,7 @@ describe('Interests', () => {
     render(<Interests id="interests" name="interests" defaultValues={[]} />, {
       wrapper: TestWrapper
     });
-    
+
     expect(await screen.findByText('Произошла ошибка')).toBeInTheDocument();
   });
 });

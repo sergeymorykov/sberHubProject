@@ -2,16 +2,14 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { api } from '../service/api';
 import { setupListeners } from '@reduxjs/toolkit/query';
 
-const rootReducer = combineReducers({ 
-  [api.reducerPath]: api.reducer 
+const rootReducer = combineReducers({
+  [api.reducerPath]: api.reducer
 });
 
 export function setupStore(preloadedState?: Partial<RootState>) {
   const store = configureStore({
-    reducer: {
-      // Add the generated reducer as a specific top-level slice
-      [api.reducerPath]: api.reducer
-    },
+    reducer: rootReducer,
+    preloadedState: preloadedState,
     // Adding the api middleware enables caching, invalidation, polling,
     // and other useful features of `rtk-query`.
     middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(api.middleware)
