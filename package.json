@@ -8,7 +8,8 @@
         "build": "npm run clean && brojs build --dev",
         "build:prod": "npm run clean && brojs build",
         "clean": "rimraf dist",
-        "eslint": "eslint src stubs"
+        "eslint": "npx eslint",
+        "lint": ""
     },
     "author": "",
     "license": "ISC",
