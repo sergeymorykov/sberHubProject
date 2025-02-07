@@ -5,6 +5,7 @@
       "es2017"
     ],
     "outDir": "./dist/",
+    "skipLibCheck": true,
     "sourceMap": true,
     "esModuleInterop": true,
     "noImplicitAny": false,
@@ -18,8 +19,6 @@
   },
   "exclude": [
     "node_modules",
-    "**/*.test.ts",
-    "**/*.test.tsx",
-    "src/@types/jest"
+    "node_modules/@types/jest"
   ]        
 }
