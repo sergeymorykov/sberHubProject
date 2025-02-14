@@ -45,7 +45,7 @@ const ProfileUser = (): React.ReactElement => {
       if (action === 'like') {
         await sendMessageBot({
           chat_id: user.id,
-          text: `К вам проявил интерес пользователь @${tg?.initDataUnsafe?.user}`
+          text: `К вам проявил интерес пользователь @${tg?.initDataUnsafe?.user.username}`
         });
       }
     }

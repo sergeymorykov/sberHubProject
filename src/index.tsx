@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom/client';
 import App from './app';
 
 const MyApp = () => <App />;
+
 export default MyApp;
 
 let rootElement: ReactDOM.Root;
